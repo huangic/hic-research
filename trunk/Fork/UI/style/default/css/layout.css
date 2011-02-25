@@ -1,0 +1,56 @@
+.warp {
+	width:1000px;
+	padding:0;
+	z-index:1;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+.content{
+
+ margin:0 auto;  
+ overflow: hidden;  
+
+}
+
+
+.warp .content .leftbg {
+    float:left;
+    width:200px;
+    
+   padding:0px 0px 0px 0px;
+}
+
+.warp .content .centerbg {
+   float:left;
+   width:592px;
+   padding:0;
+}
+
+.warp .content .rightbg {
+   float:right;
+   width:200px;
+   padding:0px 0px 0px 0px;
+}
+
+.warp .content .leftbg ,.warp .content .rightbg{
+  
+     padding-bottom: 1000px;  
+     margin-bottom: -1000px;  
+  
+}
+
+
+
+.warp .footer{
+	 clear: both;
+	 display:block;
+	}
+
+
+  
+
+  
+  
