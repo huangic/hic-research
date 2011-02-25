@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.content{
+
+
+ background: #ffc;  
+ border: 1px solid #000;  
+ 
+
+}
+
+
+.warp .content .leftbg {
+    background: #FF0;  
+ border: 1px solid #000;  
+}
+
+.warp .content .centerbg {
+    background:  #F00;  
+ border: 1px solid #000;  
+}
+
+.warp .content .rightbg {
+    background:  #0FF;  
+ border: 1px solid #000;  
+}
+
+.warp .footer{
+	  background:  #3C3;  
+ border: 1px solid #000;  
+	}
+
+
+  
+
+  
+  
