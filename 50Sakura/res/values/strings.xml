@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Main!</string>
+    <string name="app_name">50櫻</string>
+    <string name="app_main_title">50音練習器</string>
+    <string name="app_exp_title">50音熟練表</string>
+    <string name="menu_newquiz">新測試</string>
+    <string name="menu_experience">熟練表</string>
+</resources>
