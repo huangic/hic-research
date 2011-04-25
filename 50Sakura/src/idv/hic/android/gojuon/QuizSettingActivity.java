@@ -20,6 +20,7 @@ public class QuizSettingActivity extends PreferenceActivity {
 		
 	}
 	
+	
 	//設定目錄
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -38,6 +39,12 @@ public class QuizSettingActivity extends PreferenceActivity {
             //Toast.makeText(this, "New quiz", 1000).show();
         	
         	//newGame();
+        	
+        	Intent i3 = new Intent();
+            i3.setClass(this, QuizActivity.class);
+            startActivity(i3);
+            this.finish();
+        	
             return true;
         case R.id.experience:
         	//Toast.makeText(this, "experience", 1000).show();
@@ -62,5 +69,6 @@ public class QuizSettingActivity extends PreferenceActivity {
             return super.onOptionsItemSelected(item);
         }
     }
+	
 	
 }
