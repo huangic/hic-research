@@ -20,6 +20,8 @@ import android.widget.Toast;
 public class LetterActivity extends Activity implements OnTouchListener,OnGestureListener {
 
 	
+	static 
+	
 	GestureDetector mGestureDetector; 
 	final int FLING_MIN_DISTANCE=100;
 	final float FLING_MIN_VELOCITY=200;  
@@ -142,8 +144,8 @@ public class LetterActivity extends Activity implements OnTouchListener,OnGestur
 	        // Fling left
 	    	
 	    	if(this.mType.equals("type_2")){
-	    	
-	        Toast.makeText(this, "切換平假名", 100).show();
+	    	//切換為 hiragana
+	        Toast.makeText(this, getString(R.string.hiragana), 100).show();
 	    	 this.mType="type_1";
 	    	 initGridView();
 	    	 
@@ -158,7 +160,7 @@ public class LetterActivity extends Activity implements OnTouchListener,OnGestur
 	            && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
 	        // Fling right
 	    	if(this.mType.equals("type_1")){
-	    	Toast.makeText(this, "切換片假名", 100).show();
+	    	Toast.makeText(this, getString(R.string.katakana), 100).show();
 	   	 this.mType="type_2";
     	 initGridView();
     		this.mGridView.scrollTo(x, y);
