@@ -1,16 +1,19 @@
 package idv.hic.android.gojuon.dao;
 
 import idv.hic.android.gojuon.R;
+import idv.hic.util.ProjectUtil;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class SQLite extends SQLiteOpenHelper {
+import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
+import com.j256.ormlite.support.ConnectionSource;
 
+public class SQLite extends OrmLiteSqliteOpenHelper  {
+	private static final String LOGTAG=ProjectUtil.LOGTAG;
 	
 	private static final String DATABASE_NAME = "gojuon.db";	//資料庫名稱
 	private static final int DATABASE_VERSION = 1;	//資料庫版本
@@ -33,9 +36,13 @@ public class SQLite extends SQLiteOpenHelper {
 	
 
 	@Override
-	public void onCreate(SQLiteDatabase db) {
+	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource ) {
 		 //建立基本資料庫
 
+		//DAO TEST
+	
+		
+		
 		String Sql;
 		//建立字元檔
 		//letter{pk,letter.order}
@@ -75,7 +82,7 @@ public class SQLite extends SQLiteOpenHelper {
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
 		
 		
@@ -142,4 +149,9 @@ public class SQLite extends SQLiteOpenHelper {
 		}
 		
 	}
+
+
+
+
+	
 }

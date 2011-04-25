@@ -4,9 +4,9 @@ import android.util.Log;
 
 public class Letter {
 	
-	static Letter mock=new Letter(-1,"",0,0,0,0);
+	static Letter MOCK=new Letter(-1,"",0,0,0,0);
 	public static Letter getMock(){
-		return mock;
+		return MOCK;
 		
 	}
 	int id;
