@@ -1,4 +1,9 @@
-package idv.hic.android.gojuon;
+package idv.hic.android.gojuon.adapter;
+
+import idv.hic.android.gojuon.Letter;
+import idv.hic.android.gojuon.R;
+import idv.hic.android.gojuon.R.id;
+import idv.hic.android.gojuon.R.layout;
 
 import java.util.List;
 
@@ -44,7 +49,7 @@ public class LetterAdapter extends BaseAdapter {
 	public long getItemId(int arg0) {
 		// TODO Auto-generated method stub
 		//return arg0;
-		return this.items.get(arg0).id;
+		return this.items.get(arg0).getId();
 		
 	}
 
@@ -67,9 +72,9 @@ public class LetterAdapter extends BaseAdapter {
 		Letter l=this.items.get(position);
 		Log.d("Extra", "Position:"+position);
 		
-		if(!l.name.equals("")){		
-		holder.name.setText(l.name);
-		holder.rate.setText(l.correct+"/"+l.total);
+		if(!l.getName().equals("")){		
+		holder.name.setText(l.getName());
+		holder.rate.setText(l.getCorrect()+"/"+l.getTotal());
 		}else{
 			holder.name.setText("");
 			holder.rate.setText("");

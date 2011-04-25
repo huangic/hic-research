@@ -9,12 +9,20 @@
     android:layout_width="fill_parent" android:id="@+id/editText1">
     </EditText>
     
-     
-	<fragment android:name="idv.hic.android.gojuon.QuizFragment"
-            android:id="@+id/quiz_frage"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"  />
+   
+	 
+	 <GridView xmlns:android="http://schemas.android.com/apk/res/android"   
+    android:id="@+id/quiz_gridview"  
+    android:layout_width="fill_parent"   
+    android:layout_height="fill_parent"  
+    android:numColumns="5"  
+    android:columnWidth="90dp"  
+    android:stretchMode="columnWidth"  
+    android:gravity="center"
+    android:horizontalSpacing="10px"
+	android:verticalSpacing="10px"  
+	
+/>   
 	 
 
 

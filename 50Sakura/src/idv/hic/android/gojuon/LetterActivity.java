@@ -1,5 +1,6 @@
 package idv.hic.android.gojuon;
 
+import idv.hic.android.gojuon.adapter.LetterAdapter;
 import idv.hic.android.gojuon.dao.SQLite;
 
 import java.util.LinkedList;
@@ -17,7 +18,7 @@ import android.view.View.OnTouchListener;
 import android.widget.GridView;
 import android.widget.Toast;
 
-public class LetterActivity extends Activity implements OnTouchListener,OnGestureListener {
+public class LetterActivity extends BaseActivity implements OnTouchListener,OnGestureListener {
 
 	
 	static 
