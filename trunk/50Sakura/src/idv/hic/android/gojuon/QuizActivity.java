@@ -1,30 +1,38 @@
 package idv.hic.android.gojuon;
 
+import idv.hic.android.gojuon.adapter.QuizLetterAdapter;
 import idv.hic.android.gojuon.dao.SQLite;
+import idv.hic.util.ProjectUtil;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
+import android.view.View.OnKeyListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.Toast;
 
-public class QuizActivity extends FragmentActivity {
+public class QuizActivity extends BaseActivity {
 
+	private static String LOGTAG=ProjectUtil.LOGTAG;
 	
+	EditText mEt;
+	GridView mGridView;
+	int mPosition=0;
+	//String mType="type_1";// Letter type {type_1,type_2}
+	SQLite dbHelper=new SQLite(this);
 	
 	
 	@Override
@@ -33,10 +41,121 @@ public class QuizActivity extends FragmentActivity {
             
         setContentView(R.layout.quizact);
             
+        mGridView=(GridView)this.findViewById(R.id.quiz_gridview);
+		
+        //mGridView.setSelected(true);
+        
+		mEt=(EditText)this.findViewById(R.id.editText1);
+        
+        
+        this.initGridView();
+        
+		
+        mGridView.setSelected(true);
+		
+		mEt.setOnKeyListener(new OnKeyListener() {
+			
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				// TODO Auto-generated method stub
+				Log.d(LOGTAG, "keycode="+keyCode);
+				
+				if(keyCode==KeyEvent.KEYCODE_ENTER && event.getAction()==KeyEvent.ACTION_DOWN ){
+					//mGridView.scrollTo(mGridView.getScrollX()+20, mGridView.getScrollY());
+					
+					Log.d(LOGTAG,"Enter key Position="+mPosition);
+					
+					//設定Item
+					Letter l=(Letter)  mGridView.getItemAtPosition(mPosition);
+					l.setCurrent(false);
+					l.setUsed(true);
+					
+					
+					mPosition++;
+					
+					Letter l2=(Letter)  mGridView.getItemAtPosition(mPosition);
+					l2.setCurrent(true);
+				
+					mGridView.setSelection(mPosition);
+					
+					mGridView.refreshDrawableState();
+					
+				}
+				
+				if(keyCode==KeyEvent.KEYCODE_ENTER && event.getAction()==KeyEvent.ACTION_UP){
+					mEt.setText("");
+					
+				}
+				
+				
+				
+				return false;
+			}
+		});
+		
+		
+		//設定item
+		Letter l=(Letter)  this.mGridView.getItemAtPosition(mPosition);
+		l.setCurrent(true);
+		Log.d(LOGTAG,"Init Position="+mPosition);
+		
+		
+		
+		mGridView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int postition,
+					long arg3) {
+				// TODO Auto-generated method stub
+				
+				//Log.d(LOGTAG,"Item Position:"+postition);
+				//Letter l=(Letter)  mGridView.getItemAtPosition(postition);
+				//l.setCurrent(true);
+				//Log.d(LOGTAG,"Item:"+l.getName());
+			}
+		});
+		
     }
 	
 	
 	
+	
+	
+	private void initGridView(){
+		
+	       try{
+	        
+	        
+	        
+	        Cursor c=this.dbHelper.getLetterByVocalAndType("vocal_1", "type_1");
+	        
+	        int rowNum=c.getCount();
+	        c.moveToFirst();
+	        
+	        List<Letter> itemList=new LinkedList<Letter>();
+	        
+	        
+	        for(int i=0;i<rowNum;i++){
+	        	
+	        	Letter currentItem=new Letter(c.getInt(0), c.getString(1), c.getInt(2), c.getInt(3), c.getInt(4), c.getInt(5));
+	        	
+	        	
+	        	itemList.add(currentItem);
+	        	c.moveToNext();
+	        }
+	        c.close();
+	        
+	        this.mGridView.setAdapter(new QuizLetterAdapter(this, itemList));
+	        
+	        
+	        
+	       }catch(Exception ex){
+	    	   
+	    	 Log.d("Extra", ex.getMessage());
+	    	   
+	       }
+		
+	}
 	
 
 
