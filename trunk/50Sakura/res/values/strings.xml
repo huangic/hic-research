@@ -4,6 +4,8 @@
     <string name="app_name">50音練習器</string>
     <string name="app_main_title">50音練習器</string>
     <string name="app_exp_title">50音熟練表</string>
+    <string name="app_quiz_title">50音練習</string>
+    
     <string name="menu_newquiz">練習</string>
     <string name="menu_experience">熟練表</string>
     <string name="menu_setting">練習設定</string>

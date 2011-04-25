@@ -91,6 +91,12 @@ public class ExperienseActivity extends TabActivity {
             //Toast.makeText(this, "New quiz", 1000).show();
         	
         	//newGame();
+        	
+        	Intent i3 = new Intent();
+            i3.setClass(this, QuizActivity.class);
+            startActivity(i3);
+            this.finish();
+        	
             return true;
         case R.id.experience:
         	//Toast.makeText(this, "experience", 1000).show();

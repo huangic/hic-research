@@ -24,6 +24,11 @@
            
         </activity>
         
+        <activity android:name=".QuizActivity"
+                  android:label="@string/app_quiz_title">
+           
+        </activity>
+        
         
 
     </application>
