@@ -6,7 +6,6 @@ import android.preference.PreferenceActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class QuizSettingActivity extends PreferenceActivity {
 		

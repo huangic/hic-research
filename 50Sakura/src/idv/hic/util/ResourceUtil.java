@@ -1,7 +1,6 @@
 package idv.hic.util;
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.util.Log;
 
 public class ResourceUtil {
