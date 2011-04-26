@@ -11,12 +11,10 @@ import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.j256.ormlite.support.ConnectionSource;
-
-public class SQLite extends OrmLiteSqliteOpenHelper  {
+public class SQLite extends SQLiteOpenHelper  {
 	private static final String LOGTAG=ProjectUtil.LOGTAG;
 	
 	private static final String DATABASE_NAME = "gojuon.db";	//資料庫名稱
@@ -40,7 +38,7 @@ public class SQLite extends OrmLiteSqliteOpenHelper  {
 	
 
 	@Override
-	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource ) {
+	public void onCreate(SQLiteDatabase db ) {
 		 //建立基本資料庫
 
 		//DAO TEST
@@ -86,7 +84,7 @@ public class SQLite extends OrmLiteSqliteOpenHelper  {
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,int oldVersion, int newVersion) {
+	public void onUpgrade(SQLiteDatabase db,int oldVersion, int newVersion) {
 		// TODO Auto-generated method stub
 		
 		
