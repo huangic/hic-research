@@ -2,8 +2,6 @@ package idv.hic.android.gojuon.adapter;
 
 import idv.hic.android.gojuon.Letter;
 import idv.hic.android.gojuon.R;
-import idv.hic.android.gojuon.R.id;
-import idv.hic.android.gojuon.R.layout;
 
 import java.util.List;
 

@@ -4,12 +4,8 @@ import idv.hic.android.gojuon.dao.SQLite;
 import idv.hic.util.ResourceUtil;
 import android.app.TabActivity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -22,7 +18,7 @@ public class ExperienseActivity extends TabActivity {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.experiense);
 
-	    Resources res = getResources(); // Resource object to get Drawables
+	    //Resources res = getResources(); // Resource object to get Drawables
 	    TabHost tabHost = getTabHost();  // The activity TabHost
 	    TabHost.TabSpec spec;  // Resusable TabSpec for each tab
 	      // Reusable Intent for each tab

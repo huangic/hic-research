@@ -2,6 +2,10 @@ package idv.hic.android.gojuon.dao;
 
 import idv.hic.android.gojuon.R;
 import idv.hic.util.ProjectUtil;
+import idv.hic.util.StringUtils;
+
+import java.util.List;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
@@ -151,7 +155,26 @@ public class SQLite extends OrmLiteSqliteOpenHelper  {
 	}
 
 
-
+	public Cursor getQuizLetter(String type,List<String> vocals){
+		SQLiteDatabase db=getReadableDatabase();
+		String sql="select a.* from letter a,letter_cat b " +
+					"where b.letter_id=a.id and b.cat_code=? " +
+					"and id in ( " +
+					"select id from letter c,letter_cat d " +
+					"where c.id=d.letter_id " +
+					"and (cat_code in ("+StringUtils.ListToComma(vocals)+" ) ) )";
+		return db.rawQuery(sql, new String[]{type});
+		
+	}
+	
+	public Cursor getQuizLetter(List Ids,int Num){
+		SQLiteDatabase db=getReadableDatabase();
+		String sql="select * from letter " + 
+					"where id in ("+StringUtils.ListToComma(Ids)+") Order by RANDOM() limit " +Num;
+					
+		return db.rawQuery(sql, null);
+		
+	}
 
 	
 }
