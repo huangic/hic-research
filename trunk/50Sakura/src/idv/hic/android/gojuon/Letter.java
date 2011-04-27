@@ -14,49 +14,23 @@ public class Letter  implements Cloneable {
 	int id;
 	String name = "";
 	int order;
-	int error;
-	int correct;
-	int total;
+	int errorNum;
+	int correctNum;
+	int totalNum;
 	boolean current=false;
-	boolean corrent=false;
+	boolean correct=false;
 	boolean used=false;
 
-	public boolean isUsed() {
-		return used;
-	}
-
-	public void setUsed(boolean used) {
-		this.used = used;
-	}
-
-	public boolean isCurrent() {
-		return current;
-	}
-
-	public void setCurrent(boolean current) {
-		this.current = current;
-	}
-
-	public boolean isCorrent() {
-		return corrent;
-	}
-
-	public void setCorrent(boolean corrent) {
-		this.corrent = corrent;
-	}
-
-	public Letter() {
-		super();
-	};
+	
 
 	public Letter(int id, String name, int order, int error, int correct,
 			int total) {
 		this.id = id;
 		this.name = name;
 		this.order = order;
-		this.error = error;
-		this.correct = correct;
-		this.total = total;
+		this.errorNum = error;
+		this.correctNum = correct;
+		this.totalNum = total;
 		Log.d("Extra", this.id + " " + this.name + " " + this.order + " "
 				+ this.correct);
 	}
@@ -85,28 +59,54 @@ public class Letter  implements Cloneable {
 		this.order = order;
 	}
 
-	public int getError() {
-		return error;
+	
+
+	public int getErrorNum() {
+		return errorNum;
 	}
 
-	public void setError(int error) {
-		this.error = error;
+	public void setErrorNum(int errorNum) {
+		this.errorNum = errorNum;
 	}
 
-	public int getCorrect() {
+	public int getCorrectNum() {
+		return correctNum;
+	}
+
+	public void setCorrectNum(int correctNum) {
+		this.correctNum = correctNum;
+	}
+
+	public int getTotalNum() {
+		return totalNum;
+	}
+
+	public void setTotalNum(int totalNum) {
+		this.totalNum = totalNum;
+	}
+
+	public boolean isCurrent() {
+		return current;
+	}
+
+	public void setCurrent(boolean current) {
+		this.current = current;
+	}
+
+	public boolean isCorrect() {
 		return correct;
 	}
 
-	public void setCorrect(int correct) {
+	public void setCorrect(boolean correct) {
 		this.correct = correct;
 	}
 
-	public int getTotal() {
-		return total;
+	public boolean isUsed() {
+		return used;
 	}
 
-	public void setTotal(int total) {
-		this.total = total;
+	public void setUsed(boolean used) {
+		this.used = used;
 	}
 
 	@Override

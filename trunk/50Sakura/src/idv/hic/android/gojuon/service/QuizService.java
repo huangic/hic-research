@@ -25,16 +25,26 @@ import android.util.Log;
  */
 public class QuizService {
 	
+	Context mContext=null;
+	
+	SQLite DbHelper=null;
+	
+	public QuizService(Context context){
+		
+		this.mContext=context;
+		this.DbHelper=new SQLite(mContext);
+	}
+	
 	private static String LOGTAG=QuizService.class.toString();
 	
-	public List<Letter> getQuizLetter(Context context){
+	public List<Letter> getQuizLetter(){
 		//取得參數
-		SQLite DbHelper=new SQLite(context);
+		
 		
 		
 		List<Integer> Ids=new ArrayList<Integer>();
 		
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 
 		PrefValue prefValue=new PrefValue(prefs);
 		
@@ -108,9 +118,9 @@ public class QuizService {
 			letter_cursor.moveToNext();
 		}
 		
-						
+		letter_cursor.close();
 		
-		DbHelper.close();
+	
 		
 		
 		
@@ -142,4 +152,36 @@ public class QuizService {
 		return itemList;
 		
 	}
+
+	public void CheckQuizLetter(Letter letter,String phonic){
+		//比對這讀音的ID是否為 LETTER 的字
+		
+		
+		phonic=phonic.toLowerCase();
+		
+		//取出對應的IDS
+		
+		
+		List<Integer> Ids=DbHelper.getPhonicLetterIds(phonic);
+		
+		boolean correct=false;
+		if(Ids.indexOf(letter.getId())!=-1){
+			
+			correct=true;
+		
+		
+		}
+		letter.setCorrect(correct);
+		
+		letter.setCurrent(false);
+		letter.setUsed(true);
+		
+		DbHelper.updateLetterCorrentRate(letter.getId(),correct);
+		
+		
+	}
+	
+
+	
+
 }

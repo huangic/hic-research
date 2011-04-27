@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -203,6 +204,41 @@ public class SQLite extends SQLiteOpenHelper  {
 		
 	}
 	
+	public List<Integer> getPhonicLetterIds(String phonic){
+		SQLiteDatabase db=getReadableDatabase();
+		String sql="select letter_id from phonics where phonic =?";
+		
+		List<Integer> list=new ArrayList<Integer>();
+		Cursor c=db.rawQuery(sql, new String[]{phonic});
+		
+		while(c.moveToNext()){
+			list.add(c.getInt(0));
+		}
+		
+		c.close();
+		return list ;
+	}
 	
+	public void updateLetterCorrentRate(int letter_id,boolean correct){
+		SQLiteDatabase db=getWritableDatabase();
+		int err=0;
+		int crr=0;
+		
+		if(correct){
+			crr=1;		
+		}else{
+			err=1;
+			
+		}
+		
+		String sql="update letter set " +
+				"'err_count'='err_count'+"+err+"," +
+				"'crr_count'='crrcount'+"+crr+"," +
+				"'total_count'='total_count'+1 where id="+letter_id;
+		db.execSQL(sql);
+		 Log.d("init_db",sql);
+		//db.update(table, values, whereClause, whereArgs)
+		db.close();
+	}
 	
 }

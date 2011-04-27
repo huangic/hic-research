@@ -72,7 +72,7 @@ public class LetterAdapter extends BaseAdapter {
 		
 		if(!l.getName().equals("")){		
 		holder.name.setText(l.getName());
-		holder.rate.setText(l.getCorrect()+"/"+l.getTotal());
+		holder.rate.setText(l.getCorrectNum()+"/"+l.getTotalNum());
 		}else{
 			holder.name.setText("");
 			holder.rate.setText("");
