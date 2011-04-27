@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,8 +22,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnKeyListener;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.AdapterView.OnItemClickListener;
 
 
 /**
@@ -62,8 +65,8 @@ public class QuizActivity extends BaseActivity  {
 
 		this.initGridView();
 
-		 mHandler = new Handler();  
-	     mHandler.post(redrawGridViewRedraw);  
+		mHandler = new Handler();  
+	    mHandler.post(redrawGridViewRedraw);  
 						
 		mGridView.setSelected(true);
 
@@ -74,6 +77,28 @@ public class QuizActivity extends BaseActivity  {
 		l.setCurrent(true);
 		Log.d(LOGTAG, "Init Position=" + mPosition);
 
+		 mGridView.setOnItemClickListener(new OnItemClickListener() {
+
+				@Override
+				public void onItemClick(AdapterView<?> paramAdapterView,
+						View paramView, int positioin, long paramLong) {
+					// TODO Auto-generated method stub
+					if(onQuiz)
+						return;
+						
+						
+					Letter l=(Letter)mGridView.getItemAtPosition(positioin);
+					
+					if(l!=Letter.MOCK){
+					
+					Dialog dialog=DialogUtils.getLetterDialog(QuizActivity.this,l );
+					
+					dialog.show();
+					}
+				}
+			});
+		
+		
 	}
 
 	private void initGridView() {
@@ -177,7 +202,7 @@ public class QuizActivity extends BaseActivity  {
         public void run() {  
             mGridView.invalidateViews();  
             Log.d(LOGTAG, "handler trigger");
-            mHandler.postDelayed(redrawGridViewRedraw, 500);  
+            mHandler.postDelayed(redrawGridViewRedraw, 1000);  
         }  
     };  
 
@@ -225,10 +250,11 @@ public class QuizActivity extends BaseActivity  {
 					
 					int second=(int)(endTime.getTime()-mStartTime.getTime())/1000;
 					
-					AlertDialog endQuizDialog=getAlertDialog("練習結束", String.format("總共花費%d秒\n，可點選字母觀看讀音", second));
+					AlertDialog endQuizDialog=getAlertDialog("練習結束", String.format("總共花費%d秒\n", second));
 					endQuizDialog.show();
 					
 				}
+				//mGridView.invalidateViews();
 				
 				return true;
 			}

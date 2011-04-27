@@ -54,7 +54,7 @@ public class ExperienseActivity extends TabActivity {
 	    
 	    
 	    
-	    
+	    /*
 	    //將大小改變
 	    TabWidget tabwidget=tabHost.getTabWidget();
 	    
@@ -64,7 +64,7 @@ public class ExperienseActivity extends TabActivity {
 	    	                                        .findViewById(android.R.id.icon);
 	    	                        iv.getLayoutParams().height = 10;
 	    	}
-	    
+	    */
 	    
 	}
 

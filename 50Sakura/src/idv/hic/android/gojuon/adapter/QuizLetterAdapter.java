@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.opengl.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,12 +54,12 @@ public class QuizLetterAdapter extends BaseAdapter {
 
 		// TODO Auto-generated method stub
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.letter_item, null);
+			convertView = mInflater.inflate(R.layout.letter_quizitem, null);
 			holder = new ViewHolder();
 			holder.name = (TextView) convertView
 					.findViewById(R.id.letter_item_name);
-			holder.phonic = (TextView) convertView
-					.findViewById(R.id.letter_item_rate);
+			holder.phonic=(TextView) convertView
+			.findViewById(R.id.letter_item_phonic);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -75,22 +76,27 @@ public class QuizLetterAdapter extends BaseAdapter {
 
 		// }
 		//init
-		convertView.setBackgroundColor(Color.BLACK);
+		convertView.setBackgroundColor(Color.GRAY);
 		holder.name.setTextColor(Color.WHITE);
-		
+		holder.phonic.setText("");
 		if (!l.isUsed()) {
 			
 			if (l.isCurrent()) {
 				convertView.setBackgroundColor(Color.LTGRAY);
+				
 			}
 		} else {
 
 			
 			if (l.isCorrect()) {
 				holder.name.setTextColor(Color.GREEN);
+				 holder.phonic.setTextColor(Color.GREEN);
+				holder.phonic.setText(l.getPhonics());
 			}else{	
 			 holder.name.setTextColor(Color.RED);
-
+			 holder.phonic.setTextColor(Color.RED);
+			 holder.phonic.setText(l.getPhonics());
+			
 			}
 
 		}

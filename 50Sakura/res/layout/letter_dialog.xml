@@ -13,16 +13,11 @@
 			android:textColor="#FFF" android:textSize="30px"  />
 
 
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			android:orientation="vertical" android:layout_width="wrap_content"
-			android:layout_height="fill_parent" android:id="@+id/phonic_layout"
-			android:gravity="center_vertical"
+		
 			
-			>
-			
-			<TextView android:text="TextView" android:id="@+id/textView1"
+			<TextView android:text="TextView" android:id="@+id/dialog_phonic"
 				android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="bottom"></TextView>
-		</LinearLayout>
+		
 
 
 
@@ -30,7 +25,7 @@
 	<Button android:layout_height="wrap_content" android:id="@+id/dialog_cancel" android:layout_width="wrap_content" android:text="@string/ok"
 	
 	android:layout_gravity="center_horizontal"
-	android:padding="10dp"
+	android:layout_margin="10px"
 	></Button>
 
 

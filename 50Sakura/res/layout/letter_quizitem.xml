@@ -4,7 +4,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"    
               android:layout_width="fill_parent"    
               android:layout_height="fill_parent"    
-              android:padding="5dp" 
+              android:padding="3dp" 
               android:gravity="center_horizontal"   
               
               >     
@@ -16,17 +16,11 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                android:textSize="20px"       
               />  
               
-     <TextView android:id="@+id/letter_item_phonic"    
+    <TextView android:id="@+id/letter_item_phonic"    
               android:layout_width="wrap_content"    
               android:layout_height="fill_parent"    
               android:textColor="#FFF"
-              android:textSize="16px"    
-              />              
-              
-    <TextView android:id="@+id/letter_item_rate"    
-              android:layout_width="wrap_content"    
-              android:layout_height="fill_parent"    
-              android:textColor="#FFF"
-              android:textSize="14px"    
-              />    
+               android:textSize="16px"       
+              />  
+   
 </LinearLayout>    

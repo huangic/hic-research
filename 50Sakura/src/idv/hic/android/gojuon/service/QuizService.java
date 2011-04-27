@@ -27,12 +27,12 @@ public class QuizService {
 	
 	Context mContext=null;
 	
-	SQLite DbHelper=null;
+	SQLite dbHelper=null;
 	
 	public QuizService(Context context){
 		
 		this.mContext=context;
-		this.DbHelper=new SQLite(mContext);
+		this.dbHelper=new SQLite(mContext);
 	}
 	
 	private static String LOGTAG=QuizService.class.toString();
@@ -60,7 +60,7 @@ public class QuizService {
 			if(prefValue.isHira_vocal_3())
 				vocals.add("vocal_3");
 			
-			Cursor c=DbHelper.getQuizLetter("type_1", vocals);
+			Cursor c=dbHelper.getQuizLetter("type_1", vocals);
 			int Type1Num=c.getCount();
 			c.moveToFirst();
 			for(int i=0;i<Type1Num;i++){
@@ -86,7 +86,7 @@ public class QuizService {
 			if(prefValue.isKata_vocal_3())
 				vocals.add("vocal_3");
 		
-			Cursor c=DbHelper.getQuizLetter("type_2", vocals);
+			Cursor c=dbHelper.getQuizLetter("type_2", vocals);
 			int Type2Num=c.getCount();
 			c.moveToFirst();
 			for(int i=0;i<Type2Num;i++){
@@ -102,7 +102,7 @@ public class QuizService {
 		
 		
 		//將來要改為加權
-		Cursor letter_cursor=DbHelper.getQuizLetter(Ids, prefValue.getQuiznum());
+		Cursor letter_cursor=dbHelper.getQuizLetter(Ids, prefValue.getQuiznum());
 		
 		int rowNum = letter_cursor.getCount();
 		letter_cursor.moveToFirst();
@@ -121,7 +121,7 @@ public class QuizService {
 		letter_cursor.close();
 		
 	
-		
+		this.setPhonics(itemList);
 		
 		
 		//確認一下 數量是否正確 如果小於測驗數 那就亂數拿
@@ -144,6 +144,9 @@ public class QuizService {
 				}
 			}
 			
+			
+			
+			
 			return newItemList;
 		}
 		
@@ -162,7 +165,7 @@ public class QuizService {
 		//取出對應的IDS
 		
 		
-		List<Integer> Ids=DbHelper.getPhonicLetterIds(phonic);
+		List<Integer> Ids=dbHelper.getPhonicLetterIds(phonic);
 		
 		boolean correct=false;
 		if(Ids.indexOf(letter.getId())!=-1){
@@ -176,12 +179,61 @@ public class QuizService {
 		letter.setCurrent(false);
 		letter.setUsed(true);
 		
-		DbHelper.updateLetterCorrentRate(letter.getId(),correct);
+		dbHelper.updateLetterCorrentRate(letter.getId(),correct);
 		
 		
 	}
 	
-
+	public void setPhonics(List<Letter> letters){
+		//read all letter and set its phonic(s)
+		for(Letter l :letters){
+		List<String> phonics= this.dbHelper.getPhonics(l.getId());
+			if(phonics.size()>0){
+			StringBuffer sb=new StringBuffer();
+			for(String s:phonics){
+			sb.append("[").append(s).append("]").append("\n");
+				}
+			l.setPhonics(sb.substring(0, sb.length()-1).toString());
+			}
+			
+		}
+		
+	}
 	
-
+	public List<Letter> getExpLetter(String vocal_cat,String mType){
+		 Cursor c=this.dbHelper.getLetterByVocalAndType(vocal_cat, mType);
+	        
+	        int rowNum=c.getCount();
+	        c.moveToFirst();
+	        
+	        List<Letter> itemList=new LinkedList<Letter>();
+	        
+	        Letter perviousItem=null;
+	        
+	        for(int i=0;i<rowNum;i++){
+	        	
+	        	Letter currentItem=new Letter(c.getInt(0), c.getString(1), c.getInt(2), c.getInt(3), c.getInt(4), c.getInt(5));
+	        	
+	        	//取目前筆跟上壹筆決定插入幾筆mock字
+	        	if(i>0){
+	              	int minus=currentItem.getOrder()-perviousItem.getOrder();
+	        	    if(minus>1){
+	        			//Add Mock Letter(null)
+	        			for(int j=1;j<minus;j++){
+	        				itemList.add(Letter.getMock());
+	        			}
+	        		}
+	        	}
+	        	perviousItem=currentItem;
+	        	itemList.add(currentItem);
+	        	c.moveToNext();
+	        }
+	        
+	        c.close();
+	        
+	        
+	        this.setPhonics(itemList);
+	        
+		return itemList;
+	}
 }

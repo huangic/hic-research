@@ -241,4 +241,22 @@ public class SQLite extends SQLiteOpenHelper  {
 		db.close();
 	}
 	
+	
+	public List<String> getPhonics(int letter_id){
+		List<String> phonics=new ArrayList<String>();
+		
+		SQLiteDatabase db=getReadableDatabase();
+		
+		
+		String sql="select phonic from phonics where letter_id="+letter_id;
+		
+		Cursor c=db.rawQuery(sql, null);
+		
+		while(c.moveToNext()){
+			phonics.add(c.getString(0));
+		}
+		c.close();
+		return phonics;
+	}
+	
 }
