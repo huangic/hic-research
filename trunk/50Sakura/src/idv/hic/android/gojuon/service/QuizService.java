@@ -7,11 +7,13 @@ import idv.hic.android.gojuon.dao.SQLite;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 
 
@@ -23,7 +25,7 @@ import android.preference.PreferenceManager;
  */
 public class QuizService {
 	
-	
+	private static String LOGTAG=QuizService.class.toString();
 	
 	public List<Letter> getQuizLetter(Context context){
 		//取得參數
@@ -89,6 +91,7 @@ public class QuizService {
 		//取出LETTER
 		
 		
+		//將來要改為加權
 		Cursor letter_cursor=DbHelper.getQuizLetter(Ids, prefValue.getQuiznum());
 		
 		int rowNum = letter_cursor.getCount();
@@ -105,11 +108,35 @@ public class QuizService {
 			letter_cursor.moveToNext();
 		}
 		
-		
-		
-		
+						
 		
 		DbHelper.close();
+		
+		
+		
+		//確認一下 數量是否正確 如果小於測驗數 那就亂數拿
+		int quizNum=prefValue.getQuiznum();
+		int itemSize=itemList.size();
+		
+		if(itemSize< prefValue.getQuiznum()){
+				
+			List<Letter> newItemList=new LinkedList<Letter>();
+			
+			Random rnd=new Random();
+			
+			for(int i =0;i<quizNum;i++){
+				int index=rnd.nextInt(itemSize-1);
+				try{
+				newItemList.add((Letter)itemList.get(index).clone());
+				}catch(CloneNotSupportedException ex){
+					Log.d(LOGTAG, ex.getMessage());
+					
+				}
+			}
+			
+			return newItemList;
+		}
+		
 		
 		
 		return itemList;

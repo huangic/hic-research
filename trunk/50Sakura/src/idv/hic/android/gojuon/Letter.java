@@ -2,7 +2,7 @@ package idv.hic.android.gojuon;
 
 import android.util.Log;
 
-public class Letter {
+public class Letter  implements Cloneable {
 
 	static Letter MOCK = new Letter(-1, "", 0, 0, 0, 0);
 
@@ -109,4 +109,13 @@ public class Letter {
 		this.total = total;
 	}
 
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+	
+	
+	
+	
 }

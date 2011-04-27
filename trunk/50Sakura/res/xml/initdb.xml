@@ -8,6 +8,8 @@
 	<execute>insert into cat(cat_code,cat_name,cat_group,cat_order) values('type_2','片假名','type',2)</execute>
 	
 	<!-- Letter -->
+	
+	<!-- 平假名 -->
 	<execute>insert into letter(id,letter,letter_order) values(1,'あ',0)</execute>
 	<execute>insert into letter(id,letter,letter_order) values(2,'い',1)</execute>
 	<execute>insert into letter(id,letter,letter_order) values(3,'う',2)</execute>
@@ -61,7 +63,18 @@
 	<execute>insert into letter(id,letter,letter_order) values(46,'ん',54)</execute>
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<!-- Letter -->
+	<!-- 平假名 -->
 	<execute>insert into letter(id,letter,letter_order) values(51,'ア',0)</execute>
 	<execute>insert into letter(id,letter,letter_order) values(52,'イ',1)</execute>
 	<execute>insert into letter(id,letter,letter_order) values(53,'ウ',2)</execute>
@@ -705,5 +718,102 @@
 	<execute>insert into letter_cat(cat_code,letter_id) values('type_2',235)</execute>
 	<execute>insert into letter_cat(cat_code,letter_id) values('type_2',236)</execute>
 
+	<!-- PHONICS -->
+	<!-- 清音 1~46 51~96 -->
+	<execute>insert into phonics(letter_id,phonic) values(1,"a")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(2,"a")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(3,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(4,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(5,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(6,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(7,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(8,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(9,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(10,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(11,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(12,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(13,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(14,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(15,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(16,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(17,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(18,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(19,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(20,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(21,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(22,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(23,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(24,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(25,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(26,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(27,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(28,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(29,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(30,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(31,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(32,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(33,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(34,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(35,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(36,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(37,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(38,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(39,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(40,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(41,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(42,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(43,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(44,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(45,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(46,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(51,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(52,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(53,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(54,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(55,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(56,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(57,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(58,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(59,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(60,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(61,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(62,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(63,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(64,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(65,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(66,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(67,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(68,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(69,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(70,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(71,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(72,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(73,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(74,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(75,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(76,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(77,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(78,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(79,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(80,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(81,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(82,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(83,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(84,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(85,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(86,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(87,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(88,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(89,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(90,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(91,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(92,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(93,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(94,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(95,"i")</execute>
+	<execute>insert into phonics(letter_id,phonic) values(96,"i")</execute>
+	
+	
+	
 	
 </initdb>
