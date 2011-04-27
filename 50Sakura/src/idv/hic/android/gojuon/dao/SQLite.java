@@ -1,15 +1,21 @@
 package idv.hic.android.gojuon.dao;
 
 import idv.hic.android.gojuon.R;
+import idv.hic.android.gojuon.R.raw;
 import idv.hic.util.ProjectUtil;
 import idv.hic.util.StringUtils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -54,7 +60,7 @@ public class SQLite extends SQLiteOpenHelper  {
 		db.execSQL(Sql);
 		
 		//建立字元讀音
-	   //phonics {pk,letter(fk),phonic}
+	   //phonics {pk,letter_id(fk),phonic}
 		
         Sql="CREATE TABLE phonics(letter_id,phonic);";
 		db.execSQL(Sql);
@@ -76,7 +82,7 @@ public class SQLite extends SQLiteOpenHelper  {
 		Sql="CREATE TABLE letter_cat(cat_code,letter_id);";
 		db.execSQL(Sql);
 		
-		this.initDB(db);
+		this.initDBFromSql(db);
 		
 		
 		//歷史紀錄與熟練
@@ -109,7 +115,7 @@ public class SQLite extends SQLiteOpenHelper  {
 	} 
 	
 	
-	private void initDB(SQLiteDatabase db){
+	private void initDBFromXml(SQLiteDatabase db){
 		
 		
 		
@@ -133,7 +139,7 @@ public class SQLite extends SQLiteOpenHelper  {
 		          }
 		     }else if(xrp.getEventType()==XmlResourceParser.TEXT&&inTitle){
 	        	  String execute=xrp.getText();
-	        	  Log.d("Extra",execute);
+	        	  Log.d("init_db",execute);
 	        	  db.execSQL(execute);		
 	        	  inTitle=false;
 	          }
@@ -152,6 +158,29 @@ public class SQLite extends SQLiteOpenHelper  {
 		
 	}
 
+	
+	private void initDBFromSql(SQLiteDatabase db){
+		InputStream inputStream = mContext.getResources().openRawResource(R.raw.gojuon);
+
+        InputStreamReader inputreader = new InputStreamReader(inputStream);
+        BufferedReader buffreader = new BufferedReader(inputreader);
+         String line;
+        
+         try {
+           while (( line = buffreader.readLine()) != null) {
+        	   Log.d("init_db",line);
+	           try{
+        	   db.execSQL(line);
+	           }catch(Exception ex){
+	        	   Log.d("init_db_error", ex.getMessage());
+	        	   
+	           }
+             }
+       } catch (IOException e) {
+           //return null;
+       }
+        
+	}
 
 	public Cursor getQuizLetter(String type,List<String> vocals){
 		SQLiteDatabase db=getReadableDatabase();
@@ -173,6 +202,7 @@ public class SQLite extends SQLiteOpenHelper  {
 		return db.rawQuery(sql, null);
 		
 	}
-
+	
+	
 	
 }
