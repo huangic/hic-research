@@ -20,7 +20,7 @@ public class Letter  implements Cloneable {
 	boolean current=false;
 	boolean correct=false;
 	boolean used=false;
-
+	String phonics;
 	
 
 	public Letter(int id, String name, int order, int error, int correct,
@@ -113,6 +113,14 @@ public class Letter  implements Cloneable {
 	public Object clone() throws CloneNotSupportedException {
 		// TODO Auto-generated method stub
 		return super.clone();
+	}
+
+	public String getPhonics() {
+		return phonics;
+	}
+
+	public void setPhonics(String phonics) {
+		this.phonics = phonics;
 	}
 	
 	

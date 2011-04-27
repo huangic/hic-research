@@ -6,6 +6,7 @@ import idv.hic.android.gojuon.R;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +61,7 @@ public class LetterAdapter extends BaseAdapter {
 			convertView=mInflater.inflate(R.layout.letter_item,null);
 			holder=new ViewHolder();
 			holder.name=(TextView)convertView.findViewById(R.id.letter_item_name);
+			holder.phonic=(TextView)convertView.findViewById(R.id.letter_item_phonic);
 			holder.rate=(TextView)convertView.findViewById(R.id.letter_item_rate);
 			convertView.setTag(holder);			
 		}else{
@@ -72,19 +74,22 @@ public class LetterAdapter extends BaseAdapter {
 		
 		if(!l.getName().equals("")){		
 		holder.name.setText(l.getName());
+		holder.phonic.setText(l.getPhonics());
 		holder.rate.setText(l.getCorrectNum()+"/"+l.getTotalNum());
 		}else{
 			holder.name.setText("");
 			holder.rate.setText("");
+			holder.phonic.setText("");
 			
 		}
-		
+		convertView.setBackgroundColor(Color.GRAY);
 		return convertView;
 	}
 	
 	
 	private class ViewHolder{
 		TextView name;
+		TextView phonic;
 		TextView rate;
 		
 	}
