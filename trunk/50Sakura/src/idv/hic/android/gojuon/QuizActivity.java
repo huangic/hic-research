@@ -65,9 +65,8 @@ public class QuizActivity extends BaseActivity  {
 
 		this.initGridView();
 
-		mHandler = new Handler();  
-	    mHandler.post(redrawGridViewRedraw);  
-						
+		
+	    
 		mGridView.setSelected(true);
 
 		mEt.setOnKeyListener(new OnEnterKeyPressListener());
@@ -100,6 +99,34 @@ public class QuizActivity extends BaseActivity  {
 		
 		
 	}
+	
+	
+	
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		this.onQuiz=false;
+		
+	}
+
+
+
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		this.onQuiz=true;
+		mHandler = new Handler();  
+	    mHandler.post(redrawGridViewRedraw);  
+		
+	    
+	}
+
+
+
 
 	private void initGridView() {
 
@@ -202,7 +229,8 @@ public class QuizActivity extends BaseActivity  {
         public void run() {  
             mGridView.invalidateViews();  
             Log.d(LOGTAG, "handler trigger");
-            mHandler.postDelayed(redrawGridViewRedraw, 1000);  
+            if(QuizActivity.this.onQuiz){
+            mHandler.postDelayed(redrawGridViewRedraw, 1000);  }
         }  
     };  
 
