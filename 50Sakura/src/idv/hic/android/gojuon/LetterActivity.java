@@ -6,6 +6,7 @@ import idv.hic.android.gojuon.dao.SQLite;
 import java.util.LinkedList;
 import java.util.List;
 
+import android.app.Dialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,8 @@ import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -40,7 +43,23 @@ public class LetterActivity extends BaseActivity implements OnTouchListener,OnGe
         mGridView=(GridView)findViewById(R.id.gridview);
         mGestureDetector=new GestureDetector(this);
         mGridView.setOnTouchListener(this);
-       
+     
+        
+        
+        mGridView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> paramAdapterView,
+					View paramView, int positioin, long paramLong) {
+				// TODO Auto-generated method stub
+				
+				Dialog dialog=DialogUtils.getLetterDialog(LetterActivity.this,(Letter)mGridView.getItemAtPosition(positioin) );
+				
+				dialog.show();
+			}
+		});
+        
+        
     }
 	
 	

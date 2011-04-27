@@ -57,7 +57,7 @@ public class QuizLetterAdapter extends BaseAdapter {
 			holder = new ViewHolder();
 			holder.name = (TextView) convertView
 					.findViewById(R.id.letter_item_name);
-			holder.rate = (TextView) convertView
+			holder.phonic = (TextView) convertView
 					.findViewById(R.id.letter_item_rate);
 			convertView.setTag(holder);
 		} else {
@@ -86,7 +86,7 @@ public class QuizLetterAdapter extends BaseAdapter {
 		} else {
 
 			
-			if (l.isCorrent()) {
+			if (l.isCorrect()) {
 				holder.name.setTextColor(Color.GREEN);
 			}else{	
 			 holder.name.setTextColor(Color.RED);
@@ -100,7 +100,7 @@ public class QuizLetterAdapter extends BaseAdapter {
 
 	private class ViewHolder {
 		TextView name;
-		TextView rate;
+		TextView phonic;
 
 	}
 
