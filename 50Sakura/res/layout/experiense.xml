@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/tabhost"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:padding="5dp">
-        <TabWidget
-            android:id="@android:id/tabs"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-        <FrameLayout
-            android:id="@android:id/tabcontent"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:padding="5dp" />
-    </LinearLayout>
-</TabHost>
+
+
+	<TabHost 
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:ads="http://schemas.android.com/apk/res/idv.hic.android.gojuon"
+	
+		android:id="@android:id/tabhost" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		
+		>
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_marginBottom="50dip"
+			>
+
+
+
+			<TabWidget android:id="@android:id/tabs"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" />
+			<FrameLayout android:id="@android:id/tabcontent"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				
+				android:padding="2dip" 
+			
+				/>
+			
+		</LinearLayout>
+
+		<com.google.ads.AdView android:id="@+id/ad"
+					android:layout_width="wrap_content" android:layout_height="50dip"
+					ads:adUnitId="a14db8c4f6a23fc" ads:adSize="BANNER"
+					android:layout_alignParentBottom="true"
+					
+			android:layout_gravity="bottom"/>
+
+
+	</TabHost>
+
+
+
+
+

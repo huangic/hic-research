@@ -200,6 +200,11 @@ public class QuizService {
 		
 	}
 	
+	public void close(){
+		this.dbHelper.close();
+		
+	}
+	
 	public List<Letter> getExpLetter(String vocal_cat,String mType){
 		 Cursor c=this.dbHelper.getLetterByVocalAndType(vocal_cat, mType);
 	        

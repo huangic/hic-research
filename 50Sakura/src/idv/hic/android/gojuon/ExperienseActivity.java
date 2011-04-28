@@ -1,19 +1,21 @@
 package idv.hic.android.gojuon;
 
 import idv.hic.android.gojuon.dao.SQLite;
+import idv.hic.util.AdmobUtils;
 import idv.hic.util.ResourceUtil;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TabHost;
-import android.widget.TabWidget;
+
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
 
 public class ExperienseActivity extends TabActivity {
 	
-	SQLite dbHelper=new SQLite(this);
 	
+	AdView adView;
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.experiense);
@@ -33,7 +35,7 @@ public class ExperienseActivity extends TabActivity {
 	    
 	    
 	    
-	    
+	    SQLite dbHelper=new SQLite(this);
 	    Cursor c=dbHelper.getAllVocalCat();
 	    
 	    c.moveToFirst();
@@ -52,7 +54,7 @@ public class ExperienseActivity extends TabActivity {
 	    }
 	   c.close();
 	    
-	    
+	    dbHelper.close();
 	    
 	    /*
 	    //將大小改變
@@ -66,6 +68,13 @@ public class ExperienseActivity extends TabActivity {
 	    	}
 	    */
 	    
+	   
+	   //AD
+	   
+	   adView = (AdView)this.findViewById(R.id.ad);
+	  AdmobUtils.SetAdView(adView);
+
+	   
 	}
 
 	
