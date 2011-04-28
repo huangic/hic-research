@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
-  xmlns:android="http://schemas.android.com/apk/res/android" android:title="練習設定">
+  xmlns:android="http://schemas.android.com/apk/res/android" android:title="練習設定"
+  android:orderingFromXml="true"
+  >
     
+   <idv.hic.android.gojuon.AdmobPreference android:key="ads" />
     
     <ListPreference android:title="練習字數"  android:dialogTitle="練習字數" android:key="quiznum" android:defaultValue="10" android:entries="@array/quiz_array" android:entryValues="@array/quiz_array"></ListPreference><PreferenceCategory android:key="letter_kind" android:title="練習種類">
         <CheckBoxPreference android:title="平假名" android:key="hiragana" android:defaultValue="true"></CheckBoxPreference>

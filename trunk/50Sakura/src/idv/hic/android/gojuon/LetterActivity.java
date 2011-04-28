@@ -173,4 +173,11 @@ public class LetterActivity extends BaseActivity implements OnTouchListener,
 		// return false;
 	}
 
+	
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		this.quizService.close();
+	}
 }

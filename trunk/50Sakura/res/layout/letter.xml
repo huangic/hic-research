@@ -2,18 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     >
 <GridView xmlns:android="http://schemas.android.com/apk/res/android"   
     android:id="@+id/gridview"  
     android:layout_width="fill_parent"   
-    android:layout_height="fill_parent"  
+    android:layout_height="wrap_content"  
     android:numColumns="5"  
     android:columnWidth="90dp"  
     android:stretchMode="columnWidth"  
     android:gravity="center"
     android:horizontalSpacing="5px"
 	android:verticalSpacing="5px"
+	
 	
 	
 />  
