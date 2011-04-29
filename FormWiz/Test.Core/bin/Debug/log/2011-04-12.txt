@@ -1,0 +1,145 @@
+2011-04-12 10:10:00.4149 Spring.Testing.NUnit.AbstractSpringContextTests.LoadContextLocations Info Loading config for: assembly://Core/Core.SpringConfig/Spring.xml
+2011-04-12 10:10:00.4209 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Refreshing object factory 
+2011-04-12 10:10:00.4449 Spring.Objects.Factory.Xml.XmlObjectDefinitionReader.LoadObjectDefinitions Debug Loading XML object definitions from assembly [Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null], resource [Core.SpringConfig.Spring.xml]
+2011-04-12 10:10:00.6519 Spring.Objects.Factory.Xml.XmlObjectDefinitionReader.CreateValidatingReader Debug Using the following XmlReader implementation : System.Xml.XsdValidatingReader
+2011-04-12 10:10:00.6789 Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader.RegisterObjectDefinitions Debug Loading object definitions.
+2011-04-12 10:10:00.6789 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Loading object definitions...
+2011-04-12 10:10:00.6809 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default lazy init 'false'.
+2011-04-12 10:10:00.6809 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default dependency check 'none'.
+2011-04-12 10:10:00.6809 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default autowire 'no'.
+2011-04-12 10:10:00.6809 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default merge 'false'.
+2011-04-12 10:10:00.7749 Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader.ProcessObjectDefinition Debug Registering object definition with id 'ObjTest'.
+2011-04-12 10:10:00.7749 Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader.RegisterObjectDefinitions Debug Found 1 <object> elements defining objects.
+2011-04-12 10:10:00.7749 Spring.Objects.Factory.Support.AbstractObjectDefinitionReader.LoadObjectDefinitions Debug Loaded 1 object definitions from location [assembly://Core/Core.SpringConfig/Spring.xml]
+2011-04-12 10:10:00.7749 Spring.Context.Support.AbstractXmlApplicationContext.RefreshObjectFactory Debug Refreshed ObjectFactory for application context 'spring.root'.
+2011-04-12 10:10:00.7749 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Registering well-known processors and objects
+2011-04-12 10:10:00.7749 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Custom post processing object factory
+2011-04-12 10:10:00.7749 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Post processing object factory using pre-registered processors
+2011-04-12 10:10:00.7749 Spring.Context.Support.AbstractApplicationContext.Refresh Debug 1 objects defined in application context [spring.root].
+2011-04-12 10:10:00.7749 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Post processing object factory using defined processors
+2011-04-12 10:10:00.7969 Spring.Context.Support.AbstractApplicationContext.InvokeObjectFactoryPostProcessors Debug processed 0 IFactoryObjectPostProcessors defined in application context [spring.root].
+2011-04-12 10:10:00.7969 Spring.Context.Support.AbstractApplicationContext.RegisterObjectPostProcessors Debug processed 0 IObjectPostProcessors defined in application context [spring.root].
+2011-04-12 10:10:00.7969 Spring.Context.Support.AbstractApplicationContext.InitEventRegistry Debug No IEventRegistry found with name 'eventRegistry' : using default 'Spring.Objects.Events.Support.EventRegistry'.
+2011-04-12 10:10:00.7969 Spring.Context.Support.AbstractApplicationContext.InitMessageSource Debug No IMessageSource found with name 'messageSource' : using default 'StaticMessageSource : '.
+2011-04-12 10:10:00.7969 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Preinstantiating singletons
+2011-04-12 10:10:00.7969 Spring.Objects.Factory.Support.DefaultListableObjectFactory.PreInstantiateSingletons Debug Pre-instantiating singletons in factory [Spring.Objects.Factory.Support.DefaultListableObjectFactory]
+2011-04-12 10:10:00.8059 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug    GetObjectInternal: obtaining instance for name ObjTest => canonical name ObjTest
+2011-04-12 10:10:00.8059 Spring.Objects.Factory.Support.AbstractObjectFactory.CreateAndCacheSingletonInstance Debug Creating shared instance of singleton object 'ObjTest'
+2011-04-12 10:10:00.8059 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InstantiateObject Debug Creating instance of Object 'ObjTest' with merged definition [RootObjectDefinition : Class [Core.TestObj]; Abstract = False; Parent = ; Scope = singleton; Singleton = True; LazyInit = False; Autowire = No; DependencyCheck = None; InitMethodName = ; DestroyMethodName = ; FactoryMethodName = ; FactoryObjectName = ; defined in = assembly [Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null], resource [Core.SpringConfig.Spring.xml] line 4].
+2011-04-12 10:10:00.8059 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ApplyObjectPostProcessorsBeforeInstantiation Debug Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'ObjTest'.
+2011-04-12 10:10:00.8059 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InstantiateObject Debug Eagerly caching object 'ObjTest' to allow for resolving potential circular references
+2011-04-12 10:10:00.8059 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ConfigureObject Debug Configuring object using definition 'ObjTest'
+2011-04-12 10:10:00.8059 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ApplyObjectPostProcessorsBeforeInitialization Debug Invoking IObjectPostProcessors before initialization of object 'ObjTest'
+2011-04-12 10:10:00.8219 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ApplyObjectPostProcessorsAfterInitialization Debug Invoking IObjectPostProcessors after initialization of object 'ObjTest'
+2011-04-12 10:10:00.8219 Spring.Objects.Factory.Support.AbstractObjectFactory.CreateAndCacheSingletonInstance Debug Cached shared instance of singleton object 'ObjTest'
+2011-04-12 10:10:00.8219 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectForInstance Debug Calling code asked for normal instance for name 'ObjTest'.
+2011-04-12 10:10:00.8219 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug GetObjectInternal: returning instance for objectname ObjTest
+2011-04-12 10:10:00.8219 Spring.Context.Support.AbstractApplicationContext.PublishEvent Debug Publishing event in context [spring.root] : ContextRefreshedEventArgs [Refreshed]
+2011-04-12 10:10:00.8219 Spring.Context.Support.AbstractApplicationContext.Refresh Info ApplicationContext Refresh: Completed
+2011-04-12 10:10:00.8219 Spring.Context.Support.ContextRegistry.RegisterContext Debug Registering context 'Spring.Context.Support.XmlApplicationContext' under name 'spring.root'.
+2011-04-12 10:10:00.8379 Spring.Context.Support.ContextRegistry.GetContext Debug Returning context 'Spring.Context.Support.XmlApplicationContext' registered under name 'spring.root'.
+2011-04-12 10:10:00.8379 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug    GetObjectInternal: obtaining instance for name ObjTest => canonical name ObjTest
+2011-04-12 10:10:00.8379 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug Returning cached instance of singleton object 'ObjTest'.
+2011-04-12 10:10:00.8379 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectForInstance Debug Calling code asked for normal instance for name 'ObjTest'.
+2011-04-12 10:10:00.8379 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug GetObjectInternal: returning instance for objectname ObjTest
+2011-04-12 10:10:00.9769 Test.Core.CoreTest.TestForm Debug SHIT
+2011-04-12 10:10:00.9769 Test.Core.CoreTest.TestForm Debug {"Description":"Mock Form Description","Subject":"MockForm","FormStyle":"2Column.xsl","Entity":null,"Columns":null}
+2011-04-12 10:10:00.9769 Test.Core.CoreTest.TestForm Debug {"?xml": {"@version": "1.0","@standalone": "no"},"FormDefine":{"Description":"Mock Form Description","Subject":"MockForm","FormStyle":"2Column.xsl","Entity":null,"Columns":null}}
+2011-04-12 10:10:01.0209 Test.Core.CoreTest.TestForm Debug <?xml version="1.0" standalone="no"?><FormDefine><Description>Mock Form Description</Description><Subject>MockForm</Subject><FormStyle>2Column.xsl</FormStyle><Entity /><Columns /></FormDefine>
+2011-04-12 10:10:01.0299 Test.Core.CoreTest.TestForm Debug {"?xml":{"@version":"1.0","@standalone":"no"},"FormDefine":{"Description":"Mock Form Description","Subject":"MockForm","FormStyle":"2Column.xsl","Entity":null,"Columns":null}}
+2011-04-12 10:14:11.0972 Spring.Testing.NUnit.AbstractSpringContextTests.LoadContextLocations Info Loading config for: assembly://Core/Core.SpringConfig/Spring.xml
+2011-04-12 10:14:11.1092 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Refreshing object factory 
+2011-04-12 10:14:11.1272 Spring.Objects.Factory.Xml.XmlObjectDefinitionReader.LoadObjectDefinitions Debug Loading XML object definitions from assembly [Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null], resource [Core.SpringConfig.Spring.xml]
+2011-04-12 10:14:11.3363 Spring.Objects.Factory.Xml.XmlObjectDefinitionReader.CreateValidatingReader Debug Using the following XmlReader implementation : System.Xml.XsdValidatingReader
+2011-04-12 10:14:11.3633 Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader.RegisterObjectDefinitions Debug Loading object definitions.
+2011-04-12 10:14:11.3633 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Loading object definitions...
+2011-04-12 10:14:11.3633 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default lazy init 'false'.
+2011-04-12 10:14:11.3633 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default dependency check 'none'.
+2011-04-12 10:14:11.3633 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default autowire 'no'.
+2011-04-12 10:14:11.3633 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default merge 'false'.
+2011-04-12 10:14:11.4623 Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader.ProcessObjectDefinition Debug Registering object definition with id 'ObjTest'.
+2011-04-12 10:14:11.4623 Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader.RegisterObjectDefinitions Debug Found 1 <object> elements defining objects.
+2011-04-12 10:14:11.4623 Spring.Objects.Factory.Support.AbstractObjectDefinitionReader.LoadObjectDefinitions Debug Loaded 1 object definitions from location [assembly://Core/Core.SpringConfig/Spring.xml]
+2011-04-12 10:14:11.4623 Spring.Context.Support.AbstractXmlApplicationContext.RefreshObjectFactory Debug Refreshed ObjectFactory for application context 'spring.root'.
+2011-04-12 10:14:11.4623 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Registering well-known processors and objects
+2011-04-12 10:14:11.4683 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Custom post processing object factory
+2011-04-12 10:14:11.4683 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Post processing object factory using pre-registered processors
+2011-04-12 10:14:11.4683 Spring.Context.Support.AbstractApplicationContext.Refresh Debug 1 objects defined in application context [spring.root].
+2011-04-12 10:14:11.4683 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Post processing object factory using defined processors
+2011-04-12 10:14:11.4843 Spring.Context.Support.AbstractApplicationContext.InvokeObjectFactoryPostProcessors Debug processed 0 IFactoryObjectPostProcessors defined in application context [spring.root].
+2011-04-12 10:14:11.4843 Spring.Context.Support.AbstractApplicationContext.RegisterObjectPostProcessors Debug processed 0 IObjectPostProcessors defined in application context [spring.root].
+2011-04-12 10:14:11.4843 Spring.Context.Support.AbstractApplicationContext.InitEventRegistry Debug No IEventRegistry found with name 'eventRegistry' : using default 'Spring.Objects.Events.Support.EventRegistry'.
+2011-04-12 10:14:11.4843 Spring.Context.Support.AbstractApplicationContext.InitMessageSource Debug No IMessageSource found with name 'messageSource' : using default 'StaticMessageSource : '.
+2011-04-12 10:14:11.4843 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Preinstantiating singletons
+2011-04-12 10:14:11.4843 Spring.Objects.Factory.Support.DefaultListableObjectFactory.PreInstantiateSingletons Debug Pre-instantiating singletons in factory [Spring.Objects.Factory.Support.DefaultListableObjectFactory]
+2011-04-12 10:14:11.4843 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug    GetObjectInternal: obtaining instance for name ObjTest => canonical name ObjTest
+2011-04-12 10:14:11.4843 Spring.Objects.Factory.Support.AbstractObjectFactory.CreateAndCacheSingletonInstance Debug Creating shared instance of singleton object 'ObjTest'
+2011-04-12 10:14:11.4843 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InstantiateObject Debug Creating instance of Object 'ObjTest' with merged definition [RootObjectDefinition : Class [Core.TestObj]; Abstract = False; Parent = ; Scope = singleton; Singleton = True; LazyInit = False; Autowire = No; DependencyCheck = None; InitMethodName = ; DestroyMethodName = ; FactoryMethodName = ; FactoryObjectName = ; defined in = assembly [Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null], resource [Core.SpringConfig.Spring.xml] line 4].
+2011-04-12 10:14:11.4843 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ApplyObjectPostProcessorsBeforeInstantiation Debug Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'ObjTest'.
+2011-04-12 10:14:11.4993 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InstantiateObject Debug Eagerly caching object 'ObjTest' to allow for resolving potential circular references
+2011-04-12 10:14:11.4993 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ConfigureObject Debug Configuring object using definition 'ObjTest'
+2011-04-12 10:14:11.4993 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ApplyObjectPostProcessorsBeforeInitialization Debug Invoking IObjectPostProcessors before initialization of object 'ObjTest'
+2011-04-12 10:14:11.4993 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ApplyObjectPostProcessorsAfterInitialization Debug Invoking IObjectPostProcessors after initialization of object 'ObjTest'
+2011-04-12 10:14:11.4993 Spring.Objects.Factory.Support.AbstractObjectFactory.CreateAndCacheSingletonInstance Debug Cached shared instance of singleton object 'ObjTest'
+2011-04-12 10:14:11.4993 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectForInstance Debug Calling code asked for normal instance for name 'ObjTest'.
+2011-04-12 10:14:11.4993 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug GetObjectInternal: returning instance for objectname ObjTest
+2011-04-12 10:14:11.4993 Spring.Context.Support.AbstractApplicationContext.PublishEvent Debug Publishing event in context [spring.root] : ContextRefreshedEventArgs [Refreshed]
+2011-04-12 10:14:11.4993 Spring.Context.Support.AbstractApplicationContext.Refresh Info ApplicationContext Refresh: Completed
+2011-04-12 10:14:11.5173 Spring.Context.Support.ContextRegistry.RegisterContext Debug Registering context 'Spring.Context.Support.XmlApplicationContext' under name 'spring.root'.
+2011-04-12 10:14:11.5173 Spring.Context.Support.ContextRegistry.GetContext Debug Returning context 'Spring.Context.Support.XmlApplicationContext' registered under name 'spring.root'.
+2011-04-12 10:14:11.5173 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug    GetObjectInternal: obtaining instance for name ObjTest => canonical name ObjTest
+2011-04-12 10:14:11.5173 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug Returning cached instance of singleton object 'ObjTest'.
+2011-04-12 10:14:11.5173 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectForInstance Debug Calling code asked for normal instance for name 'ObjTest'.
+2011-04-12 10:14:11.5173 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug GetObjectInternal: returning instance for objectname ObjTest
+2011-04-12 10:14:11.6663 Test.Core.CoreTest.TestForm Debug SHIT
+2011-04-12 10:14:11.6663 Test.Core.CoreTest.TestForm Debug {"Description":"Mock Form Description","Subject":"MockForm","FormStyle":"2Column.xsl","Entity":null,"Columns":null}
+2011-04-12 10:14:11.6663 Test.Core.CoreTest.TestForm Debug {"?xml": {"@version": "1.0","@standalone": "no"},"FormDefine":{"Description":"Mock Form Description","Subject":"MockForm","FormStyle":"2Column.xsl","Entity":null,"Columns":null}}
+2011-04-12 10:14:11.6883 Test.Core.CoreTest.TestForm Debug <?xml version="1.0" standalone="no"?><FormDefine><Description>Mock Form Description</Description><Subject>MockForm</Subject><FormStyle>2Column.xsl</FormStyle><Entity /><Columns /></FormDefine>
+2011-04-12 10:18:59.4447 Spring.Testing.NUnit.AbstractSpringContextTests.LoadContextLocations Info Loading config for: assembly://Core/Core.SpringConfig/Spring.xml
+2011-04-12 10:18:59.4527 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Refreshing object factory 
+2011-04-12 10:18:59.4787 Spring.Objects.Factory.Xml.XmlObjectDefinitionReader.LoadObjectDefinitions Debug Loading XML object definitions from assembly [Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null], resource [Core.SpringConfig.Spring.xml]
+2011-04-12 10:18:59.6867 Spring.Objects.Factory.Xml.XmlObjectDefinitionReader.CreateValidatingReader Debug Using the following XmlReader implementation : System.Xml.XsdValidatingReader
+2011-04-12 10:18:59.7137 Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader.RegisterObjectDefinitions Debug Loading object definitions.
+2011-04-12 10:18:59.7137 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Loading object definitions...
+2011-04-12 10:18:59.7137 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default lazy init 'false'.
+2011-04-12 10:18:59.7137 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default dependency check 'none'.
+2011-04-12 10:18:59.7137 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default autowire 'no'.
+2011-04-12 10:18:59.7137 Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper.InitDefaults Debug Default merge 'false'.
+2011-04-12 10:18:59.8138 Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader.ProcessObjectDefinition Debug Registering object definition with id 'ObjTest'.
+2011-04-12 10:18:59.8138 Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader.RegisterObjectDefinitions Debug Found 1 <object> elements defining objects.
+2011-04-12 10:18:59.8138 Spring.Objects.Factory.Support.AbstractObjectDefinitionReader.LoadObjectDefinitions Debug Loaded 1 object definitions from location [assembly://Core/Core.SpringConfig/Spring.xml]
+2011-04-12 10:18:59.8138 Spring.Context.Support.AbstractXmlApplicationContext.RefreshObjectFactory Debug Refreshed ObjectFactory for application context 'spring.root'.
+2011-04-12 10:18:59.8138 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Registering well-known processors and objects
+2011-04-12 10:18:59.8198 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Custom post processing object factory
+2011-04-12 10:18:59.8198 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Post processing object factory using pre-registered processors
+2011-04-12 10:18:59.8198 Spring.Context.Support.AbstractApplicationContext.Refresh Debug 1 objects defined in application context [spring.root].
+2011-04-12 10:18:59.8198 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Post processing object factory using defined processors
+2011-04-12 10:18:59.8358 Spring.Context.Support.AbstractApplicationContext.InvokeObjectFactoryPostProcessors Debug processed 0 IFactoryObjectPostProcessors defined in application context [spring.root].
+2011-04-12 10:18:59.8358 Spring.Context.Support.AbstractApplicationContext.RegisterObjectPostProcessors Debug processed 0 IObjectPostProcessors defined in application context [spring.root].
+2011-04-12 10:18:59.8358 Spring.Context.Support.AbstractApplicationContext.InitEventRegistry Debug No IEventRegistry found with name 'eventRegistry' : using default 'Spring.Objects.Events.Support.EventRegistry'.
+2011-04-12 10:18:59.8358 Spring.Context.Support.AbstractApplicationContext.InitMessageSource Debug No IMessageSource found with name 'messageSource' : using default 'StaticMessageSource : '.
+2011-04-12 10:18:59.8358 Spring.Context.Support.AbstractApplicationContext.Refresh Debug ApplicationContext Refresh: Preinstantiating singletons
+2011-04-12 10:18:59.8358 Spring.Objects.Factory.Support.DefaultListableObjectFactory.PreInstantiateSingletons Debug Pre-instantiating singletons in factory [Spring.Objects.Factory.Support.DefaultListableObjectFactory]
+2011-04-12 10:18:59.8358 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug    GetObjectInternal: obtaining instance for name ObjTest => canonical name ObjTest
+2011-04-12 10:18:59.8358 Spring.Objects.Factory.Support.AbstractObjectFactory.CreateAndCacheSingletonInstance Debug Creating shared instance of singleton object 'ObjTest'
+2011-04-12 10:18:59.8358 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InstantiateObject Debug Creating instance of Object 'ObjTest' with merged definition [RootObjectDefinition : Class [Core.TestObj]; Abstract = False; Parent = ; Scope = singleton; Singleton = True; LazyInit = False; Autowire = No; DependencyCheck = None; InitMethodName = ; DestroyMethodName = ; FactoryMethodName = ; FactoryObjectName = ; defined in = assembly [Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null], resource [Core.SpringConfig.Spring.xml] line 4].
+2011-04-12 10:18:59.8358 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ApplyObjectPostProcessorsBeforeInstantiation Debug Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'ObjTest'.
+2011-04-12 10:18:59.8538 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.InstantiateObject Debug Eagerly caching object 'ObjTest' to allow for resolving potential circular references
+2011-04-12 10:18:59.8538 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ConfigureObject Debug Configuring object using definition 'ObjTest'
+2011-04-12 10:18:59.8538 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ApplyObjectPostProcessorsBeforeInitialization Debug Invoking IObjectPostProcessors before initialization of object 'ObjTest'
+2011-04-12 10:18:59.8538 Spring.Objects.Factory.Support.AbstractAutowireCapableObjectFactory.ApplyObjectPostProcessorsAfterInitialization Debug Invoking IObjectPostProcessors after initialization of object 'ObjTest'
+2011-04-12 10:18:59.8538 Spring.Objects.Factory.Support.AbstractObjectFactory.CreateAndCacheSingletonInstance Debug Cached shared instance of singleton object 'ObjTest'
+2011-04-12 10:18:59.8538 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectForInstance Debug Calling code asked for normal instance for name 'ObjTest'.
+2011-04-12 10:18:59.8538 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug GetObjectInternal: returning instance for objectname ObjTest
+2011-04-12 10:18:59.8538 Spring.Context.Support.AbstractApplicationContext.PublishEvent Debug Publishing event in context [spring.root] : ContextRefreshedEventArgs [Refreshed]
+2011-04-12 10:18:59.8538 Spring.Context.Support.AbstractApplicationContext.Refresh Info ApplicationContext Refresh: Completed
+2011-04-12 10:18:59.8668 Spring.Context.Support.ContextRegistry.RegisterContext Debug Registering context 'Spring.Context.Support.XmlApplicationContext' under name 'spring.root'.
+2011-04-12 10:18:59.8668 Spring.Context.Support.ContextRegistry.GetContext Debug Returning context 'Spring.Context.Support.XmlApplicationContext' registered under name 'spring.root'.
+2011-04-12 10:18:59.8668 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug    GetObjectInternal: obtaining instance for name ObjTest => canonical name ObjTest
+2011-04-12 10:18:59.8668 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug Returning cached instance of singleton object 'ObjTest'.
+2011-04-12 10:18:59.8668 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectForInstance Debug Calling code asked for normal instance for name 'ObjTest'.
+2011-04-12 10:18:59.8668 Spring.Objects.Factory.Support.AbstractObjectFactory.GetObjectInternal Debug GetObjectInternal: returning instance for objectname ObjTest
+2011-04-12 10:19:00.0198 Test.Core.CoreTest.TestForm Debug SHIT
+2011-04-12 10:19:00.0198 Test.Core.CoreTest.TestForm Debug {"Description":"Mock Form Description","Subject":"MockForm","FormStyle":"2Column.xsl","Entity":null,"Columns":null}
+2011-04-12 10:19:00.0198 Test.Core.CoreTest.TestForm Debug {"?xml": {"@version": "1.0","@standalone": "no"},"FormDefine":{"Description":"Mock Form Description","Subject":"MockForm","FormStyle":"2Column.xsl","Entity":null,"Columns":null}}
+2011-04-12 10:19:00.0438 Test.Core.CoreTest.TestForm Debug <?xml version="1.0" standalone="no"?><FormDefine><Description>Mock Form Description</Description><Subject>MockForm</Subject><FormStyle>2Column.xsl</FormStyle><Entity /><Columns /></FormDefine>

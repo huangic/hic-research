@@ -1,0 +1,9 @@
+C:\Research\FormWiz\Web\bin\Web.dll
+C:\Research\FormWiz\Web\bin\Web.pdb
+C:\Research\FormWiz\Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Research\FormWiz\Web\obj\Debug\Web.dll
+C:\Research\FormWiz\Web\obj\Debug\Web.pdb
+C:\Research\FormWiz\Web\bin\Spring.Core.dll
+C:\Research\FormWiz\Web\bin\Common.Logging.dll
+C:\Research\FormWiz\Web\bin\Core.dll
+C:\Research\FormWiz\Web\bin\Core.pdb

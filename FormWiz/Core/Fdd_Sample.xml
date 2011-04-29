@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FormDefine>
+  <!-- 說明-->
+  <Description>Form Define Document</Description>
+  <!-- 表單名稱-->
+  <Subject>Sample Form</Subject>
+ 
+  <!--對應的Entity 名稱-->
+  <Entity>
+    <!--PK-->
+    <PrimaryKey></PrimaryKey>
+    <PrimaryKey></PrimaryKey>
+    
+    <EntityName></EntityName>
+    <Condition></Condition>
+    <Order></Order>
+  </Entity>
+  
+  <FormStyle></FormStyle>
+
+
+  <FormAction>
+    <BeforeLoad type=""></BeforeLoad>
+    <AfterLoad type=""></AfterLoad>
+    <BeforeSave type=""></BeforeSave>
+    <AfterSave type=""></AfterSave>
+  </FormAction>
+  
+  
+  
+  <!-- 取得表單資料的動作-->
+  <Columns>
+    <Column id="id1" name="姓名" entityField="AAA" fieldType="xml" order="1" >
+      <ColumnDisplayType>
+        <Type>textbox</Type>
+        <!--Textarea 特有-->
+        <MaxRows></MaxRows>
+        <!--檔案上傳元件-->
+        <MaxFile></MaxFile>
+        <FileSize></FileSize>
+        <!-- 下拉式選單 與參照資料使用-->
+        <RefData></RefData>
+      </ColumnDisplayType>
+      
+    </Column>
+
+    <Column id="id2" name="姓名" cssClass="" defaultValue="" maxLength="" minLength="" entityField="BBB" fieldType="raw" order="2" >
+      <ColumnDisplayType>
+        <Type>textbox</Type>
+        <!--Textarea 特有-->
+        <MaxRows></MaxRows>
+        <!--檔案上傳元件-->
+        <MaxFile></MaxFile>
+        <FileSize></FileSize>
+        <!-- 下拉式選單 與參照資料使用-->
+        <RefData></RefData>
+      </ColumnDisplayType>
+   
+      <!-- 資料驗證-->
+      <ValidType>
+        <!-- 文字?數字?IP?日期?email?欄位資料相等-->
+        <Type></Type>
+        <Require>true</Require>
+        <!--驗證連動欄位-->
+        <RefColumn>
+          <Column>id1</Column>
+          <Column>id2</Column>
+        </RefColumn>
+                
+      </ValidType>
+    </Column>
+    
+    <!-- FLOW 固定變數(一樣是COLUMN存入XML)-->
+    
+    
+    
+  </Columns>
+  
+</FormDefine>
