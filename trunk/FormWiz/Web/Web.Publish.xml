@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Users\User\Desktop\AAA" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="設定檔1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="04/06/2011 10:59:15" />
+    <file relUrl="Site.Master" publishTime="04/06/2011 10:50:43" />
+    <file relUrl="bin/Web.pdb" publishTime="04/06/2011 10:59:03" />
+    <file relUrl="Styles/Site.css" publishTime="04/06/2011 10:50:43" />
+    <file relUrl="bin/FormCore.dll" publishTime="04/06/2011 10:59:03" />
+    <file relUrl="bin/Web.dll" publishTime="04/06/2011 10:59:03" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="04/06/2011 10:50:43" />
+    <file relUrl="bin/Spring.config" publishTime="04/06/2011 10:55:12" />
+    <file relUrl="Global.asax" publishTime="04/06/2011 10:50:43" />
+    <file relUrl="bin/FormCore.pdb" publishTime="04/06/2011 10:59:03" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="04/06/2011 10:50:43" />
+    <file relUrl="Default.aspx" publishTime="04/06/2011 10:50:43" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="04/06/2011 10:50:43" />
+  </publishProfile>
+</publishData>
