@@ -28,5 +28,6 @@
     <string name="drill_type">Type</string>
     <string name="drill_setting">Drill preference</string>
     
+    <string name="exp_tips">Slide to change Hiragana/Katakana </string>
     
 </resources>

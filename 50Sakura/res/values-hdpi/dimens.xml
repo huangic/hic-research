@@ -10,7 +10,7 @@
 <resources>
 	<dimen name="exp_letter_size">26px</dimen>
 	<dimen name="exp_phonic_size">20px</dimen>
-	<dimen name="dialog_letter_size">30px</dimen>
-	<dimen name="dialog_phonic_size">16px</dimen>
+	<dimen name="dialog_letter_size">40px</dimen>
+	<dimen name="dialog_phonic_size">20px</dimen>
 	<dimen name="dialog_width">300px</dimen>
 </resources>

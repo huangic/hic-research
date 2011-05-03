@@ -28,4 +28,7 @@
     <string name="drill_type">練習種類</string>
     <string name="drill_setting">練習設定</string>
     
+    <string name="exp_tips">左右滑動畫面切換平假名/片假名</string>
+    
+    
 </resources>

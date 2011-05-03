@@ -93,7 +93,9 @@ public class QuizActivity extends BaseActivity {
 				}
 			});
 		} catch (Exception ex) {
-			AlertDialog endQuizDialog=getAlertDialog(getString(R.string.alertDialog_title), String.format(getString(R.string.alertDialog_msg)));
+			AlertDialog endQuizDialog = getAlertDialog(
+					getString(R.string.alertDialog_title),
+					String.format(getString(R.string.alertDialog_msg)));
 			endQuizDialog.show();
 		}
 
@@ -141,13 +143,14 @@ public class QuizActivity extends BaseActivity {
 		// 設定Dialog的內容
 		builder.setMessage(message);
 		// 設定Positive按鈕資料
-		builder.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// 按下按鈕時顯示快顯
+		builder.setPositiveButton(getString(R.string.ok),
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// 按下按鈕時顯示快顯
 
-			}
-		});
+					}
+				});
 
 		// 利用Builder物件建立AlertDialog
 		return builder.create();
@@ -209,7 +212,7 @@ public class QuizActivity extends BaseActivity {
 			mGridView.invalidateViews();
 			Log.d(LOGTAG, "handler trigger");
 			if (QuizActivity.this.onQuiz) {
-				mHandler.postDelayed(redrawGridViewRedraw, 1000);
+				mHandler.postDelayed(redrawGridViewRedraw, 500);
 			}
 		}
 	};
@@ -230,36 +233,44 @@ public class QuizActivity extends BaseActivity {
 				// 設定Item
 				Letter l = (Letter) mGridView.getItemAtPosition(mPosition);
 
-				// 檢查字母正確性
-				quizService.CheckQuizLetter(l, mEt.getText().toString().trim());
+				//必須要有輸入過
+				if (!mEt.getText().toString().trim().equals("")) {
 
-				if (mGridView.getAdapter().getCount() > mPosition + 1) {
-					mPosition++;
+					// 檢查字母正確性
+					quizService.CheckQuizLetter(l, mEt.getText().toString()
+							.trim());
 
-					Letter l2 = (Letter) mGridView.getItemAtPosition(mPosition);
-					l2.setCurrent(true);
+					if (mGridView.getAdapter().getCount() > mPosition + 1) {
+						mPosition++;
 
-					mGridView.setSelection(mPosition);
+						Letter l2 = (Letter) mGridView
+								.getItemAtPosition(mPosition);
+						l2.setCurrent(true);
 
-				} else {
-					// 結算練習成果
+						mGridView.setSelection(mPosition);
 
-					onQuiz = false;
+					} else {
+						// 結算練習成果
 
-					// 秀練習時間
+						onQuiz = false;
 
-					Date endTime = new Date();
+						// 秀練習時間
 
-					int second = (int) (endTime.getTime() - mStartTime
-							.getTime()) / 1000;
+						Date endTime = new Date();
 
-					AlertDialog endQuizDialog = getAlertDialog(getString(R.string.EndDialog_title),
-							String.format(getString(R.string.EndDialog_msg), second));
-					endQuizDialog.show();
+						int second = (int) (endTime.getTime() - mStartTime
+								.getTime()) / 1000;
 
+						AlertDialog endQuizDialog = getAlertDialog(
+								getString(R.string.EndDialog_title),
+								String.format(
+										getString(R.string.EndDialog_msg),
+										second));
+						endQuizDialog.show();
+
+					}
+					// mGridView.invalidateViews();
 				}
-				// mGridView.invalidateViews();
-
 				return true;
 			}
 
