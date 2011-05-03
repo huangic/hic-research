@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.google.ads.AdRequest;
 import com.google.ads.AdView;
@@ -75,6 +76,10 @@ public class ExperienseActivity extends TabActivity {
 	  AdmobUtils.SetAdView(adView);
 
 	   
+	  //show Tips
+	  
+	  Toast.makeText(this, R.string.exp_tips, Toast.LENGTH_SHORT).show();
+	  
 	}
 
 	
