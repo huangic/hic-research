@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">50音練習器</string>
+    <string name="app_main_title">50音練習器</string>
+    <string name="app_exp_title">50音熟練表</string>
+    <string name="app_quiz_title">50音練習</string>
+    
+    <string name="menu_newquiz">練習</string>
+    <string name="menu_experience">熟練表</string>
+    <string name="menu_setting">練習設定</string>
+    <string name="hiragana">平假名</string>
+    <string name="katakana">片假名</string>
+   
+    <string name="vocal_1">清音</string>
+    <string name="vocal_2">(半)濁音</string>
+    <string name="vocal_3">拗音</string>
+    
+    <string name="ok">確定</string>
+    <string name="phonic">五十音</string>
+    
+     <string name="alertDialog_title">警告</string>
+    <string name="alertDialog_msg">請至少選擇一個練習種類</string>
+    
+    <string name="EndDialog_title">練習結束</string>
+    <string name="EndDialog_msg">花費時間:%d秒</string>
+    <!-- prefrence -->
+    <string name="drill_number">練習字數</string>
+    <string name="drill_type">練習種類</string>
+    <string name="drill_setting">練習設定</string>
+    
+</resources>
