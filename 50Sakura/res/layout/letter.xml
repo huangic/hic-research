@@ -12,8 +12,8 @@
     android:columnWidth="90dp"  
     android:stretchMode="columnWidth"  
     android:gravity="center"
-    android:horizontalSpacing="5px"
-	android:verticalSpacing="5px"
+    android:horizontalSpacing="2px"
+	android:verticalSpacing="2px"
 	
 	
 	

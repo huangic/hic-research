@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Main!</string>
-    <string name="app_name">50音練習器</string>
-    <string name="app_main_title">50音練習器</string>
-    <string name="app_exp_title">50音熟練表</string>
-    <string name="app_quiz_title">50音練習</string>
+    <string name="app_name">Gojuon Drill</string>
+    <string name="app_main_title">Gojuon Drill</string>
+    <string name="app_exp_title">Experience Table</string>
+    <string name="app_quiz_title">Gojuon Drill</string>
     
-    <string name="menu_newquiz">練習</string>
-    <string name="menu_experience">熟練表</string>
-    <string name="menu_setting">練習設定</string>
-    <string name="hiragana">平假名</string>
-    <string name="katakana">片假名</string>
+    <string name="menu_newquiz">Drill</string>
+    <string name="menu_experience">Experience Table</string>
+    <string name="menu_setting">Preference</string>
+    <string name="hiragana">Hiragana</string>
+    <string name="katakana">Katakana</string>
    
-    <string name="vocal_1">清音</string>
-    <string name="vocal_2">濁音與半濁音</string>
-    <string name="vocal_3">拗音</string>
+    <string name="vocal_1">Seion</string>
+    <string name="vocal_2">(Hand)Dakuten </string>
+    <string name="vocal_3">Youon </string>
     
-    <string name="ok">確定</string>
+    <string name="ok">Ok</string>
+    <string name="phonic">Japanese Kana</string>
     
+    <string name="alertDialog_title">Wraning</string>
+    <string name="alertDialog_msg">Check one type to drill</string>
     
+    <string name="EndDialog_title">Drill End</string>
+    <string name="EndDialog_msg">Spend time:%d s</string>
+    <!-- prefrence -->
+    <string name="drill_number">Drill number</string>
+    <string name="drill_type">Type</string>
+    <string name="drill_setting">Drill preference</string>
     
     
 </resources>

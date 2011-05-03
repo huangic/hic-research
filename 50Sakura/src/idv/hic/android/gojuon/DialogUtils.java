@@ -16,7 +16,7 @@ public class DialogUtils {
 		
 		final Dialog dialog = new Dialog(context);  
         dialog.setContentView(R.layout.letter_dialog);  
-        dialog.setTitle("50音字母");  
+        dialog.setTitle(R.string.phonic);  
         dialog.setCancelable(true);  
         TextView textView01 = (TextView) dialog.findViewById(R.id.letter_item_name);
         TextView textView02 = (TextView) dialog.findViewById(R.id.dialog_phonic);

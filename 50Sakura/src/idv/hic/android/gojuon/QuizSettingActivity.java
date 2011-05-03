@@ -15,7 +15,7 @@ public class QuizSettingActivity extends PreferenceActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		this.addPreferencesFromResource(R.xml.quiz_perference);
+		this.addPreferencesFromResource(R.xml.quiz_preference);
 		
 	}
 	
