@@ -131,7 +131,7 @@ OnGestureListener {
 				&& Math.abs(velocityX) > FLING_MIN_VELOCITY) {
 			// Fling left
 			this.mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.left_in));
-			//this.mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.right_out));
+			this.mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.left_out));
 			
 			
 			//Toast.makeText(this, getString(R.string.hiragana), 100).show();
@@ -143,7 +143,7 @@ OnGestureListener {
 			//Toast.makeText(this, getString(R.string.katakana), 100).show();
 			
 			this.mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.right_in));
-			//this.mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.left_out));
+			this.mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.right_out));
 			
 			
 			this.mViewFlipper.showNext();
