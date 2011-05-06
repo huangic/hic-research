@@ -29,7 +29,7 @@ OnGestureListener {
 
 	//touch
 	static GestureDetector mGestureDetector;
-	final int FLING_MIN_DISTANCE = 100;
+	final int FLING_MIN_DISTANCE = 150;
 	final float FLING_MIN_VELOCITY = 200;
 	//
 	
