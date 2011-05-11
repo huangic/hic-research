@@ -1,5 +1,7 @@
 package idv.hic.android.lazycontacts;
 
+import idv.hic.android.lazycontacts.service.ContactService;
+
 import java.util.List;
 
 import com.google.inject.AbstractModule;
@@ -19,7 +21,7 @@ public class Application extends RoboApplication {
 			@Override
 			protected void configure() {
 				// TODO Auto-generated method stub
-				
+				requestStaticInjection(ContactService.class);
 			}
 		});
 		
