@@ -1,9 +1,12 @@
 package idv.hic.android.lazycontacts.service;
 
+import idv.hic.android.lazycontacts.dao.ContactsDAO;
 import idv.hic.android.lazycontacts.model.Contact;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import roboguice.util.Ln;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -13,33 +16,25 @@ import android.database.Cursor;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Data;
 
-
-
 public class ContactService {
-	@Inject 
-	Context mContext;
+	@Inject
+	ContactsDAO dao;
+	
+	
+	
+	public int getAllContactsCount() {
+		return dao.getAllCount();
+
+	}
+
+	public List<Contact> getAllContacts(int limit, int offset) {
 		
-	public List<Contact> getAllContacts(){
-		//c=ContactsContract.
-		//mContext.getContentResolver()
+		return dao.fetch(limit, offset);
+
+	}
+
+	public List<Contact> getAllContacts() {
 		
-		List<Contact> list=new LinkedList<Contact>();
-		
-		Cursor c = mContext.getContentResolver().query(Data.CONTENT_URI,
-	             null,null,null,null);
-		
-		
-		while(c.moveToNext()){
-			Contact contact=new Contact();
-			contact.setId(c.getString(c.getColumnIndex(Data._ID)));
-			contact.setName(c.getString(c.getColumnIndex(Data.DISPLAY_NAME)));
-			contact.setRawId(c.getString(c.getColumnIndex(Data.RAW_CONTACT_ID)));
-			
-			list.add(contact);
-			
-		}
-		c.close();
-		
-		return list;
+		return getAllContacts(0,0);
 	}
 }
