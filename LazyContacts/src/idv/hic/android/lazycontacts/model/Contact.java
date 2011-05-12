@@ -9,6 +9,9 @@ public class Contact {
 	private String name;
 	private List<String> phone;
 	private List<String> email;
+	private String contactType;
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -38,6 +41,12 @@ public class Contact {
 	}
 	public void setRawId(String rawId) {
 		this.rawId = rawId;
+	}
+	public void setContactType(String contactType) {
+		this.contactType = contactType;
+	}
+	public String getContactType() {
+		return contactType;
 	}
 	
 	

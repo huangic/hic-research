@@ -68,7 +68,7 @@ public class SimpleContactAdapter extends BaseAdapter {
 		
 		Contact c=this.items.get(position);
 			
-		holder.name.setText(c.getId()+","+c.getName()+","+c.getRawId());
+		holder.name.setText(c.getId()+","+c.getName()+","+c.getRawId()+","+c.getContactType());
 		
 		
 		return convertView;
@@ -81,5 +81,9 @@ public class SimpleContactAdapter extends BaseAdapter {
 		//TextView rate;
 		
 	}
+
+
+	
+	
 
 }
