@@ -1,4 +1,4 @@
-package idv.hic.util;
+package idv.hic.android.util;
 
 import android.content.Context;
 import android.util.Log;

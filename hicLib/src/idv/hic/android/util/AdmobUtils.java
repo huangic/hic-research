@@ -1,4 +1,4 @@
-package idv.hic.util;
+package idv.hic.android.util;
 
 import com.google.ads.AdRequest;
 import com.google.ads.AdView;
