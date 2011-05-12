@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SimpleContactAdapter extends BaseAdapter {
@@ -60,6 +61,7 @@ public class SimpleContactAdapter extends BaseAdapter {
 			convertView=mInflater.inflate(R.layout.contact_item,null);
 			holder=new ViewHolder();
 			holder.name=(TextView)convertView.findViewById(R.id.contact_item_name);
+			holder.icon=(ImageView)convertView.findViewById(R.id.contact_icon);
 			convertView.setTag(holder);			
 		}else{
 			holder=(ViewHolder)convertView.getTag();
@@ -68,7 +70,7 @@ public class SimpleContactAdapter extends BaseAdapter {
 		
 		Contact c=this.items.get(position);
 			
-		holder.name.setText(c.getId()+","+c.getName()+","+c.getRawId()+","+c.getContactType());
+		holder.name.setText(c.getName());
 		
 		
 		return convertView;
@@ -76,6 +78,9 @@ public class SimpleContactAdapter extends BaseAdapter {
 	
 	
 	private class ViewHolder{
+		ImageView icon;
+		
+		
 		TextView name;
 		//TextView phonic;
 		//TextView rate;
