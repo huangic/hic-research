@@ -1,9 +1,8 @@
 package idv.hic.android.gojuon.dao;
 
 import idv.hic.android.gojuon.R;
-import idv.hic.android.gojuon.R.raw;
-import idv.hic.util.ProjectUtil;
-import idv.hic.util.StringUtils;
+import idv.hic.android.util.ProjectUtil;
+import idv.hic.android.util.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,7 +15,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;

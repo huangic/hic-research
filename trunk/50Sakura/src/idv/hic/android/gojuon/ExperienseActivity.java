@@ -1,8 +1,8 @@
 package idv.hic.android.gojuon;
 
 import idv.hic.android.gojuon.dao.SQLite;
-import idv.hic.util.AdmobUtils;
-import idv.hic.util.ResourceUtil;
+import idv.hic.android.util.AdmobUtils;
+import idv.hic.android.util.ResourceUtil;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-import com.google.ads.AdRequest;
 import com.google.ads.AdView;
 
 public class ExperienseActivity extends TabActivity {
