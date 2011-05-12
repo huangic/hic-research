@@ -2,19 +2,18 @@ package idv.hic.android.gojuon;
 
 import idv.hic.android.gojuon.adapter.QuizLetterAdapter;
 import idv.hic.android.gojuon.service.QuizService;
-import idv.hic.util.ProjectUtil;
+import idv.hic.android.util.ProjectUtil;
 
 import java.util.Date;
 import java.util.List;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.AlertDialog.Builder;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -23,9 +22,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.AdapterView.OnItemClickListener;
 
 /**
  * @author Hic 練習主畫面
