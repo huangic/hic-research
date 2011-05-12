@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 
 public class ListContactActivity extends RoboListActivity  implements OnScrollListener {
 
-	 final int ITEM_NUM=50;
+	 final int ITEM_NUM=10;
 	 int PAGE_NUM=1;
 	 int TOTAL_NUM=0;
 	 List<Contact> item=new ArrayList<Contact>();
