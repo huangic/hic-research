@@ -19,7 +19,7 @@ public class ContactsDAO extends GenericPagingDAO<Contact> {
 	@Inject
 	Context mContext;
 
-	String[] dbfields = { Data._ID, Data.DISPLAY_NAME, Data.HAS_PHONE_NUMBER };
+	String[] dbfields = { Data._ID, Data.DISPLAY_NAME, Data.HAS_PHONE_NUMBER ,"sort_key" };
 
 	@Override
 	public Cursor getCursor(int limit, int offset) {
@@ -41,7 +41,8 @@ public class ContactsDAO extends GenericPagingDAO<Contact> {
 		Contact contact = new Contact();
 		contact.setId(c.getString(c.getColumnIndex(Data._ID)));
 		contact.setName(c.getString(c.getColumnIndex(Data.DISPLAY_NAME)));
-
+		contact.setSortKey(c.getString(c.getColumnIndex("sort_key")));
+		
 		// 設定PHONE
 
 		if (c.getInt(c.getColumnIndex(Data.HAS_PHONE_NUMBER)) > 0) {
@@ -76,4 +77,14 @@ public class ContactsDAO extends GenericPagingDAO<Contact> {
 		return c;
 	}
 
+	
+	private Cursor getRawCursor(long id){
+		Cursor c = mContext.getContentResolver().query(
+				ContactsContract.RawContacts.CONTENT_URI, null,
+				ContactsContract.RawContacts.CONTACT_ID + "=?",
+				new String[] { String.valueOf(id) }, null);
+
+		return c;
+		
+	}
 }

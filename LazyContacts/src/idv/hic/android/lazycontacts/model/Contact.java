@@ -6,6 +6,8 @@ public class Contact {
 	
 	private String rawId;
 	private String id;
+	
+	private String sortKey;
 	private String name;
 	private List<String> phone;
 	private List<String> email;
@@ -47,6 +49,12 @@ public class Contact {
 	}
 	public String getContactType() {
 		return contactType;
+	}
+	public void setSortKey(String sortKey) {
+		this.sortKey = sortKey;
+	}
+	public String getSortKey() {
+		return sortKey;
 	}
 	
 	

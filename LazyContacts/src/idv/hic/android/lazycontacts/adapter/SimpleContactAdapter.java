@@ -71,7 +71,7 @@ public class SimpleContactAdapter extends BaseAdapter {
 		
 		Contact c=this.items.get(position);
 			
-		holder.name.setText(c.getId()+","+c.getName());
+		holder.name.setText(c.getId()+","+c.getName()+","+c.getSortKey());
 		holder.tel.setText("");
 		
 		List<String> phone=c.getPhone();
