@@ -3,6 +3,7 @@ package idv.hic.android.lazycontacts;
 import idv.hic.android.lazycontacts.adapter.SimpleContactAdapter;
 import idv.hic.android.lazycontacts.model.Contact;
 import idv.hic.android.lazycontacts.service.ContactService;
+import idv.hic.android.lazycontacts.service.IndexService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,9 @@ public class ListContactActivity extends RoboListActivity  implements OnScrollLi
 	 
 	 @Inject
 	 ContactService contactService;
+	 
+	 @Inject
+	 IndexService indexService;
 	 
 	 
 	 View loadingLayout;
@@ -78,7 +82,7 @@ public class ListContactActivity extends RoboListActivity  implements OnScrollLi
 		
 		
 		
-		
+		this.indexService.getAll();
 		
 		
 	}
