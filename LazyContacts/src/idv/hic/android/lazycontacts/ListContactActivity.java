@@ -27,6 +27,8 @@ public class ListContactActivity extends RoboListActivity  implements OnScrollLi
 	 final int ITEM_NUM=10;
 	 int PAGE_NUM=1;
 	 int TOTAL_NUM=0;
+	 boolean isQuerying;
+	 
 	 List<Contact> item=new ArrayList<Contact>();
 	
 	 @InjectView(android.R.id.list)
@@ -45,7 +47,10 @@ public class ListContactActivity extends RoboListActivity  implements OnScrollLi
 	 
 	 private Runnable loadRunning=new Runnable(){
 		public void run(){
+			//if(isQuerying){
 			ListContactActivity.this.loadContacts();
+			//}
+			isQuerying=false;
 		}
 	 };
 	 
@@ -95,7 +100,7 @@ public class ListContactActivity extends RoboListActivity  implements OnScrollLi
 			
 			
 			BaseAdapter a=(BaseAdapter)this.getListAdapter();
-			//a.
+			
 			a.notifyDataSetChanged();
 			
 			this.mTextView.setText(this.item.size()+"");
@@ -110,11 +115,12 @@ public class ListContactActivity extends RoboListActivity  implements OnScrollLi
 			int visibleItemCount, int totalItemCount) {
 		// TODO Auto-generated method stub
 		
-		 if (firstVisibleItem + visibleItemCount == totalItemCount) {
+		 if (firstVisibleItem + visibleItemCount >= totalItemCount-(this.ITEM_NUM/2)) {
 		      			 
-			 if(totalItemCount<this.TOTAL_NUM){
+			 if((totalItemCount<this.TOTAL_NUM)&&!isQuerying){
 				 this.mListView.addFooterView(this.loadingLayout,null,false);
 				 this.PAGE_NUM++;
+				 this.isQuerying=true;
 				 this.loadHeadler.post(this.loadRunning);
 			 }
 		    }else{
