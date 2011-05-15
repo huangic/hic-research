@@ -7,10 +7,10 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName="searchindex")
 public class SearchIndex {
 
-	@DatabaseField(id=true,generatedId=true)
-	private long id;
+	@DatabaseField(generatedId=true)
+	private int id;
 	@DatabaseField
-	private long contactId;
+	private int contactId;
 	@DatabaseField
 	private String mappingNumber;
 	@DatabaseField
@@ -26,13 +26,13 @@ public class SearchIndex {
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public long getContactId() {
 		return contactId;
 	}
-	public void setContactId(long contactId) {
+	public void setContactId(int contactId) {
 		this.contactId = contactId;
 	}
 	public String getMappingNumber() {
