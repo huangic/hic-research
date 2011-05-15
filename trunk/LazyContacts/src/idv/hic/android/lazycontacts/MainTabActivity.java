@@ -4,14 +4,18 @@ package idv.hic.android.lazycontacts;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.mobyfactory.uiwidgets.RadioStateDrawable;
+import com.mobyfactory.uiwidgets.ScrollableTabActivity;
+
 import roboguice.activity.RoboTabActivity;
+import roboguice.util.Ln;
 
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TabHost;
 
-public class MainTabActivity extends RoboTabActivity {
+public class MainTabActivity extends ScrollableTabActivity {
 	
 	
 	private class TabItem{
@@ -29,11 +33,15 @@ public class MainTabActivity extends RoboTabActivity {
 	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.tab_layout);
+	    //setContentView(R.layout.tab_layout);
 
 	    
-	    TabHost tabHost = getTabHost();  // The activity TabHost
-	    TabHost.TabSpec spec;  // Resusable TabSpec for each tab
+	    this.setDelegate(new SliderBarActivityDelegateImpl());
+	    
+	    this.setDefaultShade(RadioStateDrawable.SHADE_GRAY , RadioStateDrawable.SHADE_YELLOW);
+	    
+	    //TabHost tabHost = getTabHost();  // The activity TabHost
+	    //TabHost.TabSpec spec;  // Resusable TabSpec for each tab
 	      // Reusable Intent for each tab
 
 	    // Create an Intent to launch an Activity for the tab (to be reused)
@@ -44,7 +52,7 @@ public class MainTabActivity extends RoboTabActivity {
 	    
 	    List<TabItem> tabs=new LinkedList<TabItem>();
 	   	
-	    tabs.add(new TabItem("聯絡人", R.drawable.contacts, ListContactActivity.class));
+	    tabs.add(new TabItem("聯絡人", R.drawable.tab_contacts, ListContactActivity.class));
 	    tabs.add(new TabItem("通話記錄", R.drawable.call_log, ListContactActivity.class));
 	    tabs.add(new TabItem("我的最愛", R.drawable.fave_contacts, ListContactActivity.class));
 	    
@@ -62,14 +70,17 @@ public class MainTabActivity extends RoboTabActivity {
 	    	
 	    	
 	    	
-	    	spec = tabHost.newTabSpec(tab.name).setIndicator(tab.name,getResources().getDrawable(tab.drawableId)).setContent(intent);
-		    tabHost.addTab(spec);
+	    	//spec = tabHost.newTabSpec(tab.name).setIndicator(tab.name,getResources().getDrawable(tab.drawableId)).setContent(intent);
+		    //tabHost.addTab(spec);
+	    	this.addTab(tab.name, tab.drawableId, intent);
+	    	
+	    	
 		  
 	    }
 	 
 	    
 	   
-	    
+	    this.commit();
 	   
 	  
 	  
@@ -78,7 +89,18 @@ public class MainTabActivity extends RoboTabActivity {
 	}
 
 	
-	
+	 private class SliderBarActivityDelegateImpl extends SliderBarActivityDelegate
+	    {
+	    	/*
+	    	 * Optional callback method
+	    	 * called when users tap on the tab bar button
+	    	 */
+	    	protected void onTabChanged(int tabIndex) 
+	    	{
+	    		Ln.d("onTabChanged",""+tabIndex);
+	    	}
+	    }
+
 	
 	
 }
