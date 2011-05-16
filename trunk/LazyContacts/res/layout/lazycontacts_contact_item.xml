@@ -1,42 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:greendroid="http://schemas.android.com/apk/res/idv.hic.android.lazycontacts"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:padding="0dp"
-	android:gravity="center_horizontal" >
+	android:gravity="center_horizontal">
 
 	<LinearLayout android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:orientation="horizontal"
-		
-		>
+		android:layout_height="wrap_content" android:orientation="horizontal">
 
-		<ImageView android:id="@+id/contact_icon"
-			android:layout_width="@dimen/android_icon" android:layout_height="@dimen/android_icon"
-			android:src="@drawable/android_icon" 
-			android:layout_marginLeft="2dp"
-			android:layout_marginRight="2dp"
-			
-			
-			>
-			
-		</ImageView>
+		<greendroid.widget.AsyncImageView
+			android:id="@+id/contact_icon" 
+			android:layout_width="@dimen/android_icon"
+			android:layout_height="@dimen/android_icon" 
+			greendroid:defaultSrc="@drawable/android_icon"
+			android:layout_marginLeft="2dp" android:layout_marginRight="2dp">
+
+		</greendroid.widget.AsyncImageView>
 
 
 		<LinearLayout android:layout_width="fill_parent"
 			android:layout_height="fill_parent" android:orientation="vertical"
-			android:layout_marginLeft="5dp"
-			>
+			android:layout_marginLeft="5dp">
 
 			<TextView android:id="@+id/contact_item_name"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:textColor="#FFF" android:textSize="@dimen/contact_name"
-				/>
+				android:textColor="#FFF" android:textSize="@dimen/contact_name" />
 
 			<TextView android:id="@+id/contact_item_tel"
 				android:layout_width="wrap_content" android:layout_height="wrap_content"
-				android:textColor="#FFF" android:textSize="@dimen/contact_tel"
-				 />
+				android:textColor="#FFF" android:textSize="@dimen/contact_tel" />
 
-		
+
 
 		</LinearLayout>
 
@@ -46,14 +40,12 @@
 
 	</LinearLayout>
 
-	<ImageView  android:id="@+id/contact_button"
-	 android:layout_width="wrap_content" android:layout_height="wrap_content"
-	 android:src="@android:drawable/ic_menu_info_details"
-	 android:layout_alignParentRight="true"
-	 android:layout_marginRight="5dp"
-	>
-		
-	
+	<ImageView android:id="@+id/contact_button"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:src="@android:drawable/ic_menu_info_details"
+		android:layout_alignParentRight="true" android:layout_marginRight="5dp">
+
+
 	</ImageView>
 
 

@@ -51,5 +51,10 @@
 			<type>2</type>
 			<locationURI>_android_TabLib_94dbb2d0/src</locationURI>
 		</link>
+		<link>
+			<name>hicLib_src</name>
+			<type>2</type>
+			<locationURI>_android_hicLib_b76dcfa3/src</locationURI>
+		</link>
 	</linkedResources>
 </projectDescription>

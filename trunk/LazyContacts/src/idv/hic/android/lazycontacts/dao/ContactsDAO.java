@@ -10,6 +10,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.Contacts;
+import android.provider.ContactsContract.Contacts.Photo;
 import android.provider.ContactsContract.Data;
 
 public class ContactsDAO extends GenericPagingDAO<Contact> {
