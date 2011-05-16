@@ -6,13 +6,19 @@ import idv.hic.android.lazycontacts.model.Contact;
 import idv.hic.android.lazycontacts.service.ContactService;
 import idv.hic.android.lazycontacts.service.IndexService;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ListActivity;
+import android.content.ContentUris;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.ContactsContract.Contacts;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
@@ -24,9 +30,10 @@ import android.widget.TextView;
 public class ListContactActivity extends ListActivity implements
 		OnScrollListener {
 
-	final int ITEM_NUM = 10;
+	final int ITEM_NUM = 20;
 	int PAGE_NUM = 1;
 	int TOTAL_NUM = 0;
+	int PROCESSED_ITEM=0;
 	boolean isQuerying;
 
 	List<Contact> item = new ArrayList<Contact>();
@@ -76,6 +83,7 @@ public class ListContactActivity extends ListActivity implements
 
 	};
 	Thread thread;
+	Thread imgThread;
 
 	private Runnable loadRunning = new Runnable() {
 		public void run() {
@@ -85,6 +93,8 @@ public class ListContactActivity extends ListActivity implements
 			isQuerying = false;
 		}
 	};
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -168,5 +178,10 @@ public class ListContactActivity extends ListActivity implements
 		// TODO Auto-generated method stub
 
 	}
+	
+	
+	
+	
+	
 
 }

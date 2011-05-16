@@ -1,6 +1,14 @@
 package idv.hic.android.lazycontacts.model;
 
+import java.io.InputStream;
 import java.util.List;
+
+import android.content.ContentUris;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.ContactsContract.Contacts;
 
 public class Contact {
 	
@@ -12,8 +20,7 @@ public class Contact {
 	private List<String> phone;
 	private List<String> email;
 	private String contactType;
-	private String photoUri;
-	private String photoThumbUri;
+	private Bitmap photo;
 	
 	
 	
@@ -60,18 +67,25 @@ public class Contact {
 	public String getSortKey() {
 		return sortKey;
 	}
-	public String getPhotoUri() {
-		return photoUri;
+	public void setPhoto(Bitmap photo) {
+		this.photo = photo;
 	}
-	public void setPhotoUri(String photoUri) {
-		this.photoUri = photoUri;
-	}
-	public String getPhotoThumbUri() {
-		return photoThumbUri;
-	}
-	public void setPhotoThumbUri(String photoThumbUri) {
-		this.photoThumbUri = photoThumbUri;
+	public Bitmap getPhoto() {
+		return photo;
 	}
 	
+	public void  readPhoto(Context context) {
+	     
+		Uri contactUri = ContentUris.withAppendedId(Contacts.CONTENT_URI, Long.parseLong(this.getId()));
+	     //Uri photoUri = Uri.withAppendedPath(contactUri, Contacts.Photo.CONTENT_DIRECTORY);
+	   
+	     InputStream photoDataStream =Contacts.openContactPhotoInputStream(context.getContentResolver(), contactUri);
+	    
+	     if(photoDataStream!=null){
+	     Bitmap photo = BitmapFactory.decodeStream(photoDataStream);
+     
+	     this.setPhoto(photo);
+	     }
+	 }
 	
 }

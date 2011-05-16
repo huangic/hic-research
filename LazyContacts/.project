@@ -37,11 +37,6 @@
 			<locationURI>_android_GreenDroid_612cb559/src</locationURI>
 		</link>
 		<link>
-			<name>HicLib_src</name>
-			<type>2</type>
-			<locationURI>_android_HicLib_80d2bbc3/src</locationURI>
-		</link>
-		<link>
 			<name>QuickActionLib_src</name>
 			<type>2</type>
 			<locationURI>_android_QuickActionLib_d3529922/src</locationURI>

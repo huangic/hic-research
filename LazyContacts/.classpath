@@ -6,10 +6,8 @@
 	<classpathentry kind="lib" path="libs/ormlite-android-4.21.jar"/>
 	<classpathentry kind="lib" path="libs/ormlite-core-4.21.jar"/>
 	<classpathentry kind="lib" path="libs/GoogleAdMobAdsSdk-4.0.4.jar"/>
-	<classpathentry kind="src" path="QuickActionLib_src"/>
-	<classpathentry kind="src" path="HicLib_src"/>
 	<classpathentry kind="src" path="GreenDroid_src"/>
-	<classpathentry kind="src" path="TabLib_src"/>
 	<classpathentry kind="src" path="hicLib_src"/>
+	<classpathentry kind="src" path="TabLib_src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -68,6 +68,17 @@ public class ContactsDAO extends GenericPagingDAO<Contact> {
 			contact.setPhone(phone);
 
 		}
+		
+		
+		//READ PHOTO
+		
+		
+			contact.readPhoto(mContext);
+				
+			
+			
+		
+		
 
 		// contact.setRawId(c.getString(c.getColumnIndex(Data.RAW_CONTACT_ID)));
 		// contact.setContactType(c.getString(c.getColumnIndex(Data.)));
