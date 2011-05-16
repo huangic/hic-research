@@ -58,7 +58,7 @@ public class SimpleContactAdapter extends BaseAdapter {
 		
 		// TODO Auto-generated method stub
 		if(convertView==null){
-			convertView=mInflater.inflate(R.layout.contact_item,null);
+			convertView=mInflater.inflate(R.layout.lazycontacts_contact_item,null);
 			holder=new ViewHolder();
 			holder.name=(TextView)convertView.findViewById(R.id.contact_item_name);
 			holder.icon=(ImageView)convertView.findViewById(R.id.contact_icon);
@@ -71,7 +71,7 @@ public class SimpleContactAdapter extends BaseAdapter {
 		
 		Contact c=this.items.get(position);
 			
-		holder.name.setText(c.getId()+","+c.getName()+","+c.getSortKey());
+		holder.name.setText(c.getName());
 		holder.tel.setText("");
 		
 		List<String> phone=c.getPhone();

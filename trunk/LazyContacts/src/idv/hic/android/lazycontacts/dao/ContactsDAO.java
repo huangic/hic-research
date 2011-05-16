@@ -12,15 +12,20 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Data;
 
-import com.google.inject.Inject;
-
 public class ContactsDAO extends GenericPagingDAO<Contact> {
 
-	@Inject
+	
 	Context mContext;
 
 	String[] dbfields = { Data._ID, Data.DISPLAY_NAME, Data.HAS_PHONE_NUMBER ,"sort_key" };
 
+	
+	public ContactsDAO(Context context){
+		this.mContext=context;
+		
+	}
+	
+	
 	@Override
 	public Cursor getCursor(int limit, int offset) {
 		// TODO Auto-generated method stub
