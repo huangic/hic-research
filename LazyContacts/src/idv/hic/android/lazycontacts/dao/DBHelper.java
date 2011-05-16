@@ -1,15 +1,12 @@
 package idv.hic.android.lazycontacts.dao;
 
+import idv.hic.android.lazycontacts.model.SearchIndex;
+
 import java.sql.SQLException;
 
-import roboguice.util.Ln;
-
-import idv.hic.android.lazycontacts.model.SearchIndex;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
-import com.google.inject.Inject;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
@@ -35,12 +32,12 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 		// TODO Auto-generated method stub
 	
 		
-		Ln.d("Database Create!!");
+		//Ln.d("Database Create!!");
 		try {
 			TableUtils.createTable(arg1, SearchIndex.class);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			Ln.d("Database Create error");
+			//Ln.d("Database Create error");
 		}
 		
 
@@ -55,7 +52,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 			TableUtils.dropTable(arg1, SearchIndex.class, true);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			Ln.d("Database Drop error");
+			//Ln.d("Database Drop error");
 		}
 		
 		this.onCreate(arg0, arg1);

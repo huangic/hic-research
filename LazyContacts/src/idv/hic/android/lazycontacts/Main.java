@@ -1,18 +1,13 @@
 package idv.hic.android.lazycontacts;
 
-import com.google.inject.Injector;
-
-import roboguice.activity.RoboActivity;
-import roboguice.inject.InjectResource;
-import roboguice.inject.InjectView;
-import roboguice.util.Ln;
+import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class Main extends RoboActivity {
+public class Main extends Activity {
     /** Called when the activity is first created. */
     
-	@InjectView(R.id.tv_hello)
+	
 	TextView mTextView;
 	
 	
@@ -20,10 +15,13 @@ public class Main extends RoboActivity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.lazycontacts_main);
+        
+        this.mTextView=(TextView)findViewById(R.id.tv_hello);
+        
         
         mTextView.setText("Inject Success!!");
-        Ln.d("Success");
+        //Ln.d("Success");
         
     }
 	

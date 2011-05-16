@@ -1,5 +1,6 @@
 package idv.hic.android.lazycontacts;
 
+import greendroid.app.GDListActivity;
 import idv.hic.android.lazycontacts.adapter.SimpleContactAdapter;
 import idv.hic.android.lazycontacts.model.Contact;
 import idv.hic.android.lazycontacts.service.ContactService;
@@ -8,8 +9,7 @@ import idv.hic.android.lazycontacts.service.IndexService;
 import java.util.ArrayList;
 import java.util.List;
 
-import roboguice.activity.RoboListActivity;
-import roboguice.inject.InjectView;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -21,9 +21,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.inject.Inject;
-
-public class ListContactActivity extends RoboListActivity implements
+public class ListContactActivity extends ListActivity implements
 		OnScrollListener {
 
 	final int ITEM_NUM = 10;
@@ -33,28 +31,47 @@ public class ListContactActivity extends RoboListActivity implements
 
 	List<Contact> item = new ArrayList<Contact>();
 
-	@InjectView(android.R.id.list)
+	
 	ListView mListView;
-	@InjectView(R.id.contact_tv)
+
 	TextView mTextView;
 
-	@Inject
+	
 	ContactService contactService;
 
-	@Inject
+	
 	IndexService indexService;
 
 	BaseAdapter adapter;
 
 	View loadingLayout;
 
+	
+	
+	private void initActivity(){
+		
+		mListView=(ListView)this.findViewById(android.R.id.list);
+		
+		mTextView=(TextView)this.findViewById(R.id.contact_tv);
+
+		 contactService=new ContactService(this);
+
+		 indexService=new IndexService(this);
+		
+	}
+	
+	
 	Handler loadHeadler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
-
+			//try{
 			adapter.notifyDataSetChanged();
 			ListContactActivity.this.mTextView
 					.setText(ListContactActivity.this.item.size() + "");
 			super.handleMessage(msg);
+			//}catch(Exception ex){
+				
+				
+			//}
 		};
 
 	};
@@ -74,8 +91,10 @@ public class ListContactActivity extends RoboListActivity implements
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.list_contact);
+		setContentView(R.layout.lazycontacts_list_contact);
 
+		this.initActivity();
+		
 		this.mListView.setOnScrollListener(this);
 
 		LayoutInflater inflater = LayoutInflater.from(this);

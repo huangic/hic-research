@@ -4,16 +4,11 @@ package idv.hic.android.lazycontacts;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.mobyfactory.uiwidgets.RadioStateDrawable;
-import com.mobyfactory.uiwidgets.ScrollableTabActivity;
-
-import roboguice.activity.RoboTabActivity;
-import roboguice.util.Ln;
-
-import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TabHost;
+
+import com.mobyfactory.uiwidgets.RadioStateDrawable;
+import com.mobyfactory.uiwidgets.ScrollableTabActivity;
 
 public class MainTabActivity extends ScrollableTabActivity {
 	
@@ -53,6 +48,7 @@ public class MainTabActivity extends ScrollableTabActivity {
 	    List<TabItem> tabs=new LinkedList<TabItem>();
 	   	
 	    tabs.add(new TabItem("聯絡人", R.drawable.tab_contacts, ListContactActivity.class));
+	    tabs.add(new TabItem("搜尋", R.drawable.tab_search, ListContactActivity.class));
 	    tabs.add(new TabItem("通話記錄", R.drawable.call_log, ListContactActivity.class));
 	    tabs.add(new TabItem("我的最愛", R.drawable.fave_contacts, ListContactActivity.class));
 	    
@@ -97,7 +93,7 @@ public class MainTabActivity extends ScrollableTabActivity {
 	    	 */
 	    	protected void onTabChanged(int tabIndex) 
 	    	{
-	    		Ln.d("onTabChanged",""+tabIndex);
+	    		//Ln.d("onTabChanged",""+tabIndex);
 	    	}
 	    }
 

@@ -8,17 +8,25 @@ import java.util.List;
 
 import android.content.Context;
 
-import com.google.inject.Inject;
 import com.j256.ormlite.dao.Dao;
 
 
 public class IndexService {
 
-	@Inject
+	
+	
+
+
+
+
+
+
 	Context mContext;
 	
 	
-	
+	public IndexService(Context mContext) {
+		this.mContext = mContext;
+	}
 	
 	
 	
