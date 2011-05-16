@@ -1,31 +1,41 @@
 package idv.hic.android.lazycontacts.adapter;
 
 
+import greendroid.widget.AsyncImageView;
 import idv.hic.android.lazycontacts.R;
 import idv.hic.android.lazycontacts.model.Contact;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
 
+import android.content.ContentUris;
 import android.content.Context;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.ContactsContract.Contacts;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SimpleContactAdapter extends BaseAdapter {
+public class SimpleContactAdapter extends BaseAdapter  {
 
 	private List<Contact> items;
 	
 	private LayoutInflater mInflater;
 	
+	private Context mContext;
 	
 	public SimpleContactAdapter(Context context,List<Contact> list){
 		
 		mInflater=LayoutInflater.from(context);
 		this.items=list;
 		
+		this.mContext=context;
 		
 	}
 	
@@ -61,8 +71,15 @@ public class SimpleContactAdapter extends BaseAdapter {
 			convertView=mInflater.inflate(R.layout.lazycontacts_contact_item,null);
 			holder=new ViewHolder();
 			holder.name=(TextView)convertView.findViewById(R.id.contact_item_name);
-			holder.icon=(ImageView)convertView.findViewById(R.id.contact_icon);
+			holder.icon=(AsyncImageView)convertView.findViewById(R.id.contact_icon);
+			
+			
+			
+			
+			
 			holder.tel=(TextView)convertView.findViewById(R.id.contact_item_tel);
+			
+			
 			convertView.setTag(holder);			
 		}else{
 			holder=(ViewHolder)convertView.getTag();
@@ -74,6 +91,13 @@ public class SimpleContactAdapter extends BaseAdapter {
 		holder.name.setText(c.getName());
 		holder.tel.setText("");
 		
+		
+		Bitmap photo=this.openPhoto(Long.parseLong(c.getId()));
+		if(photo!=null){
+		//holder.icon.setImageBitmap(photo);
+		}
+		//
+		
 		List<String> phone=c.getPhone();
 		if(phone!=null&&phone.size()>0){
 			holder.tel.setText(phone.get(0));
@@ -84,8 +108,8 @@ public class SimpleContactAdapter extends BaseAdapter {
 	}
 	
 	
-	private class ViewHolder{
-		ImageView icon;
+	static class ViewHolder{
+		AsyncImageView icon;
 		
 		
 		TextView name;
@@ -94,6 +118,25 @@ public class SimpleContactAdapter extends BaseAdapter {
 		//TextView rate;
 		
 	}
+
+
+	
+	public Bitmap openPhoto(long contactId) {
+	     Uri contactUri = ContentUris.withAppendedId(Contacts.CONTENT_URI, contactId);
+	     Uri photoUri = Uri.withAppendedPath(contactUri, Contacts.Photo.CONTENT_DIRECTORY);
+	   
+	     InputStream photoDataStream =Contacts.openContactPhotoInputStream(mContext.getContentResolver(), contactUri);
+	    
+	     if(photoDataStream!=null){
+	     Bitmap photo = BitmapFactory.decodeStream(photoDataStream);
+
+	     
+	     return photo;
+	     }else{
+	    	 return null;
+	    	 
+	     }
+	 }
 
 
 	

@@ -12,6 +12,10 @@ public class Contact {
 	private List<String> phone;
 	private List<String> email;
 	private String contactType;
+	private String photoUri;
+	private String photoThumbUri;
+	
+	
 	
 	
 	public String getId() {
@@ -55,6 +59,18 @@ public class Contact {
 	}
 	public String getSortKey() {
 		return sortKey;
+	}
+	public String getPhotoUri() {
+		return photoUri;
+	}
+	public void setPhotoUri(String photoUri) {
+		this.photoUri = photoUri;
+	}
+	public String getPhotoThumbUri() {
+		return photoThumbUri;
+	}
+	public void setPhotoThumbUri(String photoThumbUri) {
+		this.photoThumbUri = photoThumbUri;
 	}
 	
 	
