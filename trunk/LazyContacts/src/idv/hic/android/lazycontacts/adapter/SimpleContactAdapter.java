@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SimpleContactAdapter extends BaseAdapter  {
@@ -71,7 +72,7 @@ public class SimpleContactAdapter extends BaseAdapter  {
 			convertView=mInflater.inflate(R.layout.lazycontacts_contact_item,null);
 			holder=new ViewHolder();
 			holder.name=(TextView)convertView.findViewById(R.id.contact_item_name);
-			holder.icon=(AsyncImageView)convertView.findViewById(R.id.contact_icon);
+			holder.icon=(ImageView)convertView.findViewById(R.id.contact_icon);
 			
 			
 			
@@ -91,11 +92,18 @@ public class SimpleContactAdapter extends BaseAdapter  {
 		holder.name.setText(c.getName());
 		holder.tel.setText("");
 		
-		
-		Bitmap photo=this.openPhoto(Long.parseLong(c.getId()));
-		if(photo!=null){
-		//holder.icon.setImageBitmap(photo);
+		if(c.getPhone()!=null){
+			
+			holder.icon.setImageBitmap(c.getPhoto());
+		}else{
+			holder.icon.setImageResource(R.drawable.android_icon);
+			
 		}
+		
+		//Bitmap photo=this.openPhoto(Long.parseLong(c.getId()));
+		//if(photo!=null){
+		//holder.icon.setImageBitmap(photo);
+		//}
 		//
 		
 		List<String> phone=c.getPhone();
@@ -109,7 +117,7 @@ public class SimpleContactAdapter extends BaseAdapter  {
 	
 	
 	static class ViewHolder{
-		AsyncImageView icon;
+		ImageView icon;
 		
 		
 		TextView name;
@@ -121,22 +129,7 @@ public class SimpleContactAdapter extends BaseAdapter  {
 
 
 	
-	public Bitmap openPhoto(long contactId) {
-	     Uri contactUri = ContentUris.withAppendedId(Contacts.CONTENT_URI, contactId);
-	     Uri photoUri = Uri.withAppendedPath(contactUri, Contacts.Photo.CONTENT_DIRECTORY);
-	   
-	     InputStream photoDataStream =Contacts.openContactPhotoInputStream(mContext.getContentResolver(), contactUri);
-	    
-	     if(photoDataStream!=null){
-	     Bitmap photo = BitmapFactory.decodeStream(photoDataStream);
-
-	     
-	     return photo;
-	     }else{
-	    	 return null;
-	    	 
-	     }
-	 }
+	
 
 
 	
