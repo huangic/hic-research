@@ -73,7 +73,7 @@ public class ContactsDAO extends GenericPagingDAO<Contact> {
 		//READ PHOTO
 		
 		
-			contact.readPhoto(mContext);
+		 Contact.loadPhotoThread(this.mContext, contact);
 				
 			
 			

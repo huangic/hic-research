@@ -92,7 +92,7 @@ public class SimpleContactAdapter extends BaseAdapter  {
 		holder.name.setText(c.getName());
 		holder.tel.setText("");
 		
-		if(c.getPhone()!=null){
+		if(c.getPhoto()!=null){
 			
 			holder.icon.setImageBitmap(c.getPhoto());
 		}else{
