@@ -89,7 +89,7 @@ public class ContactsDAO extends GenericPagingDAO<Contact> {
 		Cursor c = mContext.getContentResolver().query(
 				ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
 				ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=?",
-				new String[] { String.valueOf(id) }, null);
+				new String[] { String.valueOf(id) }, ContactsContract.CommonDataKinds.Phone.IS_SUPER_PRIMARY+" DESC");
 
 		return c;
 	}
