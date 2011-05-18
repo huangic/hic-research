@@ -11,4 +11,5 @@
 	<dimen name="android_icon">64px</dimen>
 	<dimen name="contact_name">20dp</dimen>
 	<dimen name="contact_tel">12dp</dimen>
+	<dimen name="contact_group_name">22dp</dimen>
 </resources>

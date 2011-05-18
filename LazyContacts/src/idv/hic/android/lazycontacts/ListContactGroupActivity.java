@@ -1,7 +1,10 @@
 package idv.hic.android.lazycontacts;
 
 import idv.hic.android.lazycontacts.adapter.SimpleContactAdapter;
+import idv.hic.android.lazycontacts.adapter.SimpleContactGroupAdapter;
 import idv.hic.android.lazycontacts.model.Contact;
+import idv.hic.android.lazycontacts.model.ContactGroup;
+import idv.hic.android.lazycontacts.service.ContactGroupService;
 import idv.hic.android.lazycontacts.service.ContactService;
 import idv.hic.android.lazycontacts.service.IndexService;
 
@@ -18,8 +21,9 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
-public class ListContactActivity extends ListActivity implements
+public class ListContactGroupActivity extends ListActivity implements
 		OnScrollListener {
 
 	final int ITEM_NUM = 10;
@@ -28,7 +32,7 @@ public class ListContactActivity extends ListActivity implements
 	int PROCESSED_ITEM=0;
 	boolean isQuerying;
 
-	List<Contact> item = new ArrayList<Contact>();
+	List<ContactGroup> item = new ArrayList<ContactGroup>();
 
 	
 	ListView mListView;
@@ -36,7 +40,7 @@ public class ListContactActivity extends ListActivity implements
 	
 
 	
-	ContactService contactService;
+	ContactGroupService contactGroupService;
 
 	
 	IndexService indexService;
@@ -52,8 +56,7 @@ public class ListContactActivity extends ListActivity implements
 		mListView=(ListView)this.findViewById(android.R.id.list);
 		
 		
-
-		 contactService=new ContactService(this);
+		contactGroupService=new ContactGroupService(this);
 
 		 indexService=new IndexService(this);
 		
@@ -64,7 +67,7 @@ public class ListContactActivity extends ListActivity implements
 		public void handleMessage(android.os.Message msg) {
 			//try{
 			adapter.notifyDataSetChanged();
-		
+			
 			super.handleMessage(msg);
 			//}catch(Exception ex){
 				
@@ -79,7 +82,7 @@ public class ListContactActivity extends ListActivity implements
 	private Runnable loadRunning = new Runnable() {
 		public void run() {
 			// if(isQuerying){
-			ListContactActivity.this.loadContacts();
+			ListContactGroupActivity.this.loadData();
 			// }
 			isQuerying = false;
 		}
@@ -106,25 +109,25 @@ public class ListContactActivity extends ListActivity implements
 
 		
 		
-		adapter = new SimpleContactAdapter(this, item);
+		adapter = new SimpleContactGroupAdapter(this, item);
 
 		
 		this.setListAdapter(adapter);
 		
-		this.TOTAL_NUM = contactService.getAllContactsCount();
+		this.TOTAL_NUM = contactGroupService.getAllCount();
 
-		this.loadContacts();
+		this.loadData();
 
 		// this.indexService.getAll();
 
 	}
 
-	private void loadContacts() {
+	private void loadData() {
 		// CALUATE OFFSET
 
 		int offset = (this.PAGE_NUM - 1) * this.ITEM_NUM;
 
-		List<Contact> tmpItem = contactService.getAllContacts(this.ITEM_NUM,
+		List<ContactGroup> tmpItem = contactGroupService.getAll(this.ITEM_NUM,
 				offset);
 
 		item.addAll(tmpItem);

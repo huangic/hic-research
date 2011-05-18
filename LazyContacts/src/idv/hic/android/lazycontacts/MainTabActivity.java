@@ -49,6 +49,7 @@ public class MainTabActivity extends ScrollableTabActivity {
 	   	
 	    tabs.add(new TabItem("聯絡人", R.drawable.tab_contacts, ListContactActivity.class));
 	    tabs.add(new TabItem("搜尋", R.drawable.tab_search, ListContactActivity.class));
+	    tabs.add(new TabItem("群組", R.drawable.tab_search, ListContactGroupActivity.class));
 	    tabs.add(new TabItem("通話記錄", R.drawable.call_log, ListContactActivity.class));
 	    tabs.add(new TabItem("我的最愛", R.drawable.fave_contacts, ListContactActivity.class));
 	    
