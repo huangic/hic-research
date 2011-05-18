@@ -22,7 +22,7 @@ import android.widget.ListView;
 public class ListContactActivity extends ListActivity implements
 		OnScrollListener {
 
-	final int ITEM_NUM = 10;
+	final int ITEM_NUM = 0;
 	int PAGE_NUM = 1;
 	int TOTAL_NUM = 0;
 	int PROCESSED_ITEM=0;
