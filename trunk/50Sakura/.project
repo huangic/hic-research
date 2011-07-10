@@ -34,7 +34,7 @@
 		<link>
 			<name>HicLib</name>
 			<type>2</type>
-			<location>C:/Applications/eclipse/Eclipse.app/Contents/MacOS/C::/TestProjects/HicLib</location>
+			<location>/Applications/eclipse/Eclipse.app/Contents/MacOS/C::/Applications/eclipse/Eclipse.app/Contents/MacOS/C::/TestProjects/HicLib</location>
 		</link>
 		<link>
 			<name>HicLib_src</name>
