@@ -42,7 +42,7 @@ public class ExperienseActivity extends TabActivity {
 	    int rowCount=c.getCount();
 	    for(int i=0;i<rowCount;i++){
 	    	Intent intent;
-	    	intent = new Intent().setClass(this, LetterViewFlipperActivity.class);
+	    	intent = new Intent().setClass(this, LetterViewSwipeActivity.class);
 	    	intent.putExtra("Cat", c.getString(0));
 	    	
 	    	
