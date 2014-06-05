@@ -14,6 +14,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -66,6 +68,40 @@ public class QuizActivity extends BaseActivity {
 
 			mEt.setOnKeyListener(new OnEnterKeyPressListener());
 
+			
+			mEt.addTextChangedListener(new TextWatcher(){
+
+				@Override
+				public void afterTextChanged(Editable s) {
+					// TODO Auto-generated method stub
+					  String result = s.toString().replaceAll(" ", "");
+					    if (!s.toString().equals(result)) {
+					    	mEt.setText(result);
+					    	mEt.setSelection(result.length());
+					         // alert the user
+					    	
+					    	
+					    	// do set data;
+					    	checkLatter();
+					    }
+				}
+
+				@Override
+				public void beforeTextChanged(CharSequence s, int start,
+						int count, int after) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onTextChanged(CharSequence s, int start,
+						int before, int count) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+			});
+			
 			// 設定item
 			Letter l = (Letter) this.mGridView.getItemAtPosition(mPosition);
 			l.setCurrent(true);
@@ -209,13 +245,63 @@ public class QuizActivity extends BaseActivity {
 	private Runnable redrawGridViewRedraw = new Runnable() {
 		public void run() {
 			mGridView.invalidateViews();
-			Log.d(LOGTAG, "handler trigger");
+			Log.d(LOGTAG, "redraw handler trigger");
 			if (QuizActivity.this.onQuiz) {
-				mHandler.postDelayed(redrawGridViewRedraw, 500);
+				mHandler.postDelayed(redrawGridViewRedraw, 1000);
 			}
 		}
 	};
 
+	
+	
+	private void checkLatter(){
+		
+		// 設定Item
+		Letter l = (Letter) mGridView.getItemAtPosition(mPosition);
+
+		//必須要有輸入過
+		if (!mEt.getText().toString().trim().equals("")) {
+
+			// 檢查字母正確性
+			quizService.CheckQuizLetter(l, mEt.getText().toString()
+					.trim());
+
+			if (mGridView.getAdapter().getCount() > mPosition + 1) {
+				mPosition++;
+
+				Letter l2 = (Letter) mGridView
+						.getItemAtPosition(mPosition);
+				l2.setCurrent(true);
+
+				mGridView.setSelection(mPosition);
+
+			} else {
+				// 結算練習成果
+
+				onQuiz = false;
+
+				// 秀練習時間
+
+				Date endTime = new Date();
+
+				int second = (int) (endTime.getTime() - mStartTime
+						.getTime()) / 1000;
+
+				AlertDialog endQuizDialog = getAlertDialog(
+						getString(R.string.EndDialog_title),
+						String.format(
+								getString(R.string.EndDialog_msg),
+								second));
+				endQuizDialog.show();
+
+			}
+			// mGridView.invalidateViews();
+		}
+		
+		mEt.setText("");
+		
+	}
+	
 	// 設定 enter key press event
 	private class OnEnterKeyPressListener implements OnKeyListener {
 
@@ -224,61 +310,24 @@ public class QuizActivity extends BaseActivity {
 
 			Log.d(LOGTAG, "keycode=" + keyCode);
 
-			if (keyCode == KeyEvent.KEYCODE_ENTER
+			//KeyEvent
+			
+			if ((keyCode == KeyEvent.KEYCODE_ENTER|| keyCode== KeyEvent.KEYCODE_SPACE)
 					&& event.getAction() == KeyEvent.ACTION_DOWN) {
 
 				Log.d(LOGTAG, "Enter key Position=" + mPosition);
 
-				// 設定Item
-				Letter l = (Letter) mGridView.getItemAtPosition(mPosition);
-
-				//必須要有輸入過
-				if (!mEt.getText().toString().trim().equals("")) {
-
-					// 檢查字母正確性
-					quizService.CheckQuizLetter(l, mEt.getText().toString()
-							.trim());
-
-					if (mGridView.getAdapter().getCount() > mPosition + 1) {
-						mPosition++;
-
-						Letter l2 = (Letter) mGridView
-								.getItemAtPosition(mPosition);
-						l2.setCurrent(true);
-
-						mGridView.setSelection(mPosition);
-
-					} else {
-						// 結算練習成果
-
-						onQuiz = false;
-
-						// 秀練習時間
-
-						Date endTime = new Date();
-
-						int second = (int) (endTime.getTime() - mStartTime
-								.getTime()) / 1000;
-
-						AlertDialog endQuizDialog = getAlertDialog(
-								getString(R.string.EndDialog_title),
-								String.format(
-										getString(R.string.EndDialog_msg),
-										second));
-						endQuizDialog.show();
-
-					}
-					// mGridView.invalidateViews();
-				}
+				checkLatter();
 				return true;
 			}
-
+			
+			/*
 			if (keyCode == KeyEvent.KEYCODE_ENTER
 					&& event.getAction() == KeyEvent.ACTION_UP) {
 				mEt.setText("");
 
 			}
-
+			 */
 			return false;
 		}
 
