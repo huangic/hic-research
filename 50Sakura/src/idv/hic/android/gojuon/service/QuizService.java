@@ -35,6 +35,12 @@ public class QuizService {
 		this.dbHelper=new SQLite(mContext);
 	}
 	
+	
+	public void Reset(){
+		this.dbHelper.ResetCorrentRate();
+		
+	}
+	
 	private static String LOGTAG=QuizService.class.toString();
 	
 	public List<Letter> getQuizLetter(){

@@ -8,6 +8,7 @@
     <string name="menu_newquiz">練習</string>
     <string name="menu_experience">熟練表</string>
     <string name="menu_setting">練習設定</string>
+    <string name="menu_reset">清除熟練表</string>
     <string name="hiragana">平假名</string>
     <string name="katakana">片假名</string>
    
@@ -29,7 +30,7 @@
     <string name="drill_setting">練習設定</string>
     
     <string name="exp_tips">左右滑動畫面切換平假名/片假名</string>
-    
+     <string name="reset_rate">已清除熟練表資料</string>
     <string name="readme">readme.html</string>
     
 </resources>

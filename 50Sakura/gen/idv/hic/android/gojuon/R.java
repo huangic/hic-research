@@ -62,12 +62,12 @@ containing a value of this type.
         public static final int IAB_LEADERBOARD=0x7f080003;
         public static final int IAB_MRECT=0x7f080001;
         public static final int ad=0x7f080004;
-        public static final int dialog_cancel=0x7f080009;
         public static final int dialog_phonic=0x7f080008;
         public static final int editText1=0x7f08000f;
         public static final int experience=0x7f080013;
         public static final int gridview=0x7f080005;
         public static final int letter_dailog_main=0x7f080006;
+        public static final int letter_item=0x7f080009;
         public static final int letter_item_name=0x7f080007;
         public static final int letter_item_phonic=0x7f08000a;
         public static final int letter_item_rate=0x7f08000b;
@@ -76,6 +76,7 @@ containing a value of this type.
         public static final int new_quiz=0x7f080011;
         public static final int quiz_gridview=0x7f080010;
         public static final int readme=0x7f08000e;
+        public static final int reset=0x7f080014;
         public static final int swipe_view=0x7f08000d;
     }
     public static final class layout {
@@ -98,10 +99,10 @@ containing a value of this type.
         public static final int gojuon2=0x7f060001;
     }
     public static final class string {
-        public static final int EndDialog_msg=0x7f0a0011;
-        public static final int EndDialog_title=0x7f0a0010;
-        public static final int alertDialog_msg=0x7f0a000f;
-        public static final int alertDialog_title=0x7f0a000e;
+        public static final int EndDialog_msg=0x7f0a0012;
+        public static final int EndDialog_title=0x7f0a0011;
+        public static final int alertDialog_msg=0x7f0a0010;
+        public static final int alertDialog_title=0x7f0a000f;
         public static final int app_exp_title=0x7f0a0002;
         public static final int app_main_title=0x7f0a0001;
         public static final int app_name=0x7f0a0000;
@@ -109,21 +110,23 @@ containing a value of this type.
         /**  prefrence 
  prefrence 
          */
-        public static final int drill_number=0x7f0a0012;
-        public static final int drill_setting=0x7f0a0014;
-        public static final int drill_type=0x7f0a0013;
-        public static final int exp_tips=0x7f0a0015;
-        public static final int hiragana=0x7f0a0007;
-        public static final int katakana=0x7f0a0008;
+        public static final int drill_number=0x7f0a0013;
+        public static final int drill_setting=0x7f0a0015;
+        public static final int drill_type=0x7f0a0014;
+        public static final int exp_tips=0x7f0a0016;
+        public static final int hiragana=0x7f0a0008;
+        public static final int katakana=0x7f0a0009;
         public static final int menu_experience=0x7f0a0005;
         public static final int menu_newquiz=0x7f0a0004;
+        public static final int menu_reset=0x7f0a0007;
         public static final int menu_setting=0x7f0a0006;
-        public static final int ok=0x7f0a000c;
-        public static final int phonic=0x7f0a000d;
-        public static final int readme=0x7f0a0016;
-        public static final int vocal_1=0x7f0a0009;
-        public static final int vocal_2=0x7f0a000a;
-        public static final int vocal_3=0x7f0a000b;
+        public static final int ok=0x7f0a000d;
+        public static final int phonic=0x7f0a000e;
+        public static final int readme=0x7f0a0018;
+        public static final int reset_rate=0x7f0a0017;
+        public static final int vocal_1=0x7f0a000a;
+        public static final int vocal_2=0x7f0a000b;
+        public static final int vocal_3=0x7f0a000c;
     }
     public static final class xml {
         public static final int initdb=0x7f050000;

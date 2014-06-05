@@ -1,14 +1,10 @@
 package idv.hic.android.gojuon;
 
-import idv.hic.android.gojuon.adapter.LetterAdapter;
-import idv.hic.android.gojuon.dao.SQLite;
 import idv.hic.android.gojuon.service.QuizService;
 
-import java.util.LinkedList;
 import java.util.List;
 
-import android.app.Dialog;
-import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -16,10 +12,11 @@ import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
+
+import com.joanzapata.android.BaseAdapterHelper;
+import com.joanzapata.android.QuickAdapter;
 
 public class LetterActivity extends BaseActivity implements OnTouchListener,
 		OnGestureListener {
@@ -40,12 +37,8 @@ public class LetterActivity extends BaseActivity implements OnTouchListener,
 		setContentView(R.layout.letter);
 
 		mGridView = (GridView) findViewById(R.id.gridview);
-		
 
 	}
-	
-	
-	
 
 	@Override
 	protected void onResume() {
@@ -53,11 +46,8 @@ public class LetterActivity extends BaseActivity implements OnTouchListener,
 		super.onResume();
 		mGestureDetector = new GestureDetector(this);
 		mGridView.setOnTouchListener(this);
-		
+
 	}
-
-
-
 
 	@Override
 	protected void onStart() {
@@ -86,7 +76,42 @@ public class LetterActivity extends BaseActivity implements OnTouchListener,
 
 			List<Letter> itemList = quizService.getExpLetter(vocal_cat, mType);
 
-			this.mGridView.setAdapter(new LetterAdapter(this, itemList));
+			//
+
+			QuickAdapter<Letter> adapter = new QuickAdapter<Letter>(this,
+					R.layout.letter_item) {
+
+				@Override
+				protected void convert(BaseAdapterHelper helper, Letter l) {
+					// TODO Auto-generated method stub
+
+					if (!l.getName().equals("")) {
+						helper.setText(R.id.letter_item_name, l.getName());
+						helper.setText(R.id.letter_item_phonic, l.getPhonics());
+						helper.setText(R.id.letter_item_rate, l.getCorrectNum()
+								+ "/" + l.getTotalNum());
+					} else {
+						helper.setText(R.id.letter_item_name, "");
+						helper.setText(R.id.letter_item_rate, "");
+						helper.setText(R.id.letter_item_phonic, "");
+
+					}
+					if (l.getTotalNum() != l.getCorrectNum()) {
+						Log.d(TAG, "Total != Current");
+						helper.setTextColor(R.id.letter_item_rate, Color.RED);
+					} else {
+
+						helper.setBackgroundColor(R.id.letter_item, Color.GRAY);
+					}
+
+				}
+			};
+
+			adapter.addAll(itemList);
+
+			this.mGridView.setAdapter(adapter);
+
+			// this.mGridView.setAdapter(new LetterAdapter(this, itemList));
 
 		} catch (Exception ex) {
 
@@ -107,7 +132,6 @@ public class LetterActivity extends BaseActivity implements OnTouchListener,
 			float velocityY) {
 		// TODO Auto-generated method stub
 
-		
 		int position = mGridView.getFirstVisiblePosition();
 
 		if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE
@@ -135,7 +159,7 @@ public class LetterActivity extends BaseActivity implements OnTouchListener,
 
 			}
 		}
-		//this.mGridView.invalidateViews();
+		// this.mGridView.invalidateViews();
 		return true;
 
 	}
@@ -173,7 +197,6 @@ public class LetterActivity extends BaseActivity implements OnTouchListener,
 		// return false;
 	}
 
-	
 	@Override
 	protected void onStop() {
 		// TODO Auto-generated method stub

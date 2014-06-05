@@ -8,6 +8,9 @@
     <string name="menu_newquiz">Drill</string>
     <string name="menu_experience">Experience Table</string>
     <string name="menu_setting">Preference</string>
+    <string name="menu_reset">Reset Exp</string>
+    
+    
     <string name="hiragana">Hiragana</string>
     <string name="katakana">Katakana</string>
    
@@ -29,7 +32,7 @@
     <string name="drill_setting">Drill preference</string>
     
     <string name="exp_tips">Slide to change Hiragana/Katakana </string>
-    
+     <string name="reset_rate">clart experience table </string>
      <string name="readme">readme_en.html</string>
     
     

@@ -1,41 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-	android:title="@string/drill_setting" android:orderingFromXml="true">
+    android:orderingFromXml="true"
+    android:title="@string/drill_setting" >
 
-	<idv.hic.android.gojuon.AdmobPreference
-		android:key="ads" />
+    <idv.hic.android.gojuon.AdmobPreference android:key="ads" />
 
-	<ListPreference android:title="@string/drill_number"
-		android:dialogTitle="@string/drill_number" android:key="quiznum"
-		android:defaultValue="10" android:entries="@array/quiz_array"
-		android:entryValues="@array/quiz_array"></ListPreference>
-	<PreferenceCategory android:key="letter_kind"
-		android:title="@string/drill_type">
-		<CheckBoxPreference android:title="@string/hiragana"
-			android:key="hiragana" android:defaultValue="true"></CheckBoxPreference>
-		<CheckBoxPreference android:title="@string/katakana"
-			android:key="katakana"></CheckBoxPreference>
-	</PreferenceCategory>
-	<PreferenceCategory android:key="letter_hira"
-		android:title="@string/hiragana">
-		<CheckBoxPreference android:title="@string/vocal_1" android:key="hira_vocal_1"
-			android:defaultValue="true" android:dependency="hiragana"></CheckBoxPreference>
-		<CheckBoxPreference android:title="@string/vocal_2"
-			android:key="hira_vocal_2" android:defaultValue="true"
-			android:dependency="hiragana"></CheckBoxPreference>
-		<CheckBoxPreference android:title="@string/vocal_3" android:key="hira_vocal_3"
-			android:defaultValue="true" android:dependency="hiragana"></CheckBoxPreference>
-	</PreferenceCategory>
-	<PreferenceCategory android:key="letter_kata"
-		android:title="@string/katakana">
-		<CheckBoxPreference android:title="@string/vocal_1" android:key="kata_vocal_1"
-			android:dependency="katakana"></CheckBoxPreference>
-		<CheckBoxPreference android:title="@string/vocal_2"
-			android:key="kata_vocal_2" android:dependency="katakana"></CheckBoxPreference>
-		<CheckBoxPreference android:title="@string/vocal_3" android:key="kata_vocal_3"
-			android:dependency="katakana"></CheckBoxPreference>
-	</PreferenceCategory>
+    <ListPreference
+        android:defaultValue="10"
+        android:dialogTitle="@string/drill_number"
+        android:entries="@array/quiz_array"
+        android:entryValues="@array/quiz_array"
+        android:key="quiznum"
+        android:title="@string/drill_number" >
+    </ListPreference>
 
-
+    <PreferenceCategory
+        android:key="letter_kind"
+        android:title="@string/drill_type" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="hiragana"
+            android:title="@string/hiragana" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="katakana"
+            android:title="@string/katakana" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="letter_hira"
+        android:title="@string/hiragana" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="hiragana"
+            android:key="hira_vocal_1"
+            android:title="@string/vocal_1" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="hiragana"
+            android:key="hira_vocal_2"
+            android:title="@string/vocal_2" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="hiragana"
+            android:key="hira_vocal_3"
+            android:title="@string/vocal_3" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="letter_kata"
+        android:title="@string/katakana" >
+        <CheckBoxPreference
+            android:dependency="katakana"
+            android:key="kata_vocal_1"
+            android:title="@string/vocal_1" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:dependency="katakana"
+            android:key="kata_vocal_2"
+            android:title="@string/vocal_2" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:dependency="katakana"
+            android:key="kata_vocal_3"
+            android:title="@string/vocal_3" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
 
 </PreferenceScreen>

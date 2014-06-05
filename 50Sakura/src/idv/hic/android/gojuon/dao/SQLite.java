@@ -217,6 +217,19 @@ public class SQLite extends SQLiteOpenHelper  {
 		return list ;
 	}
 	
+	
+	
+	public void ResetCorrentRate(){
+		SQLiteDatabase db=getWritableDatabase();
+		String sql="update letter set " +
+				"'err_count'='0'," +
+				"'crr_count'='0'," +
+				"'total_count'='0'";
+		db.execSQL(sql);
+		 Log.d("init_db",sql);
+		 db.close();
+	}
+	
 	public void updateLetterCorrentRate(int letter_id,boolean correct){
 		SQLiteDatabase db=getWritableDatabase();
 		int err=0;
