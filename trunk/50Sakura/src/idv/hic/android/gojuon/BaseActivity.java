@@ -1,10 +1,12 @@
 package idv.hic.android.gojuon;
 
+import idv.hic.android.gojuon.service.QuizService;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public abstract class BaseActivity extends Activity {
 
@@ -55,6 +57,17 @@ public abstract class BaseActivity extends Activity {
             i2.setClass(this, QuizSettingActivity.class);
             startActivity(i2);
             this.finish();
+            return true;
+            
+        case R.id.reset:
+        	QuizService servcice=new QuizService(this);
+        	servcice.Reset();
+        	
+        	
+        	Toast.makeText(this, R.string.reset_rate, 1000);
+        	
+        	return true;
+            //this.finish();
             
         default:
             return super.onOptionsItemSelected(item);

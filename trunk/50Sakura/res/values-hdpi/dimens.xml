@@ -8,9 +8,9 @@
 	the specific language governing permissions and limitations under the License. -->
 
 <resources>
-	<dimen name="exp_letter_size">26px</dimen>
-	<dimen name="exp_phonic_size">20px</dimen>
-	<dimen name="dialog_letter_size">40px</dimen>
-	<dimen name="dialog_phonic_size">20px</dimen>
-	<dimen name="dialog_width">300px</dimen>
+	<dimen name="exp_letter_size">20dp</dimen>
+	<dimen name="exp_phonic_size">15dp</dimen>
+	<dimen name="dialog_letter_size">40dp</dimen>
+	<dimen name="dialog_phonic_size">20dp</dimen>
+	<dimen name="dialog_width">300dp</dimen>
 </resources>

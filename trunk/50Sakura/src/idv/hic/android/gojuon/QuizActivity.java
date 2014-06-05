@@ -1,6 +1,5 @@
 package idv.hic.android.gojuon;
 
-import idv.hic.android.gojuon.adapter.QuizLetterAdapter;
 import idv.hic.android.gojuon.service.QuizService;
 import idv.hic.android.util.ProjectUtil;
 
@@ -12,6 +11,7 @@ import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -27,6 +27,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.GridView;
+
+import com.joanzapata.android.BaseAdapterHelper;
+import com.joanzapata.android.QuickAdapter;
 
 /**
  * @author Hic 練習主畫面
@@ -82,7 +85,7 @@ public class QuizActivity extends BaseActivity {
 					    	
 					    	
 					    	// do set data;
-					    	checkLatter();
+					    	checkLetter();
 					    }
 				}
 
@@ -149,10 +152,13 @@ public class QuizActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		this.onQuiz = true;
-		mHandler = new Handler();
-		mHandler.post(redrawGridViewRedraw);
+		
+		//mHandler.post(redrawGridViewRedraw);
 
 	}
+	
+	
+	
 
 	private void initGridView() {
 
@@ -160,7 +166,51 @@ public class QuizActivity extends BaseActivity {
 
 			List<Letter> itemList = this.quizService.getQuizLetter();
 
-			this.mGridView.setAdapter(new QuizLetterAdapter(this, itemList));
+			
+			QuickAdapter<Letter> adapter=new QuickAdapter<Letter>(this,R.layout.letter_quizitem){
+
+				@Override
+				protected void convert(BaseAdapterHelper helper, Letter letter) {
+					// TODO Auto-generated method stub
+					
+					
+					helper.setText(R.id.letter_item_name, letter.name);
+					//helper.setText(R.id.letter_item_phonic, latter.phonics);
+					helper.setBackgroundColor(R.id.letter_item,Color.GRAY);
+					helper.setTextColor(R.id.letter_item_name, Color.WHITE);
+					helper.setText(R.id.letter_item_phonic, "");
+					if (!letter.isUsed()) {
+						
+						if (letter.isCurrent()) {
+							helper.setBackgroundColor(R.id.letter_item,Color.LTGRAY);
+							
+						}
+					} else {
+
+						
+						if (letter.isCorrect()) {
+							helper.setTextColor(R.id.letter_item_name,Color.GREEN);
+							helper.setTextColor(R.id.letter_item_phonic,Color.GREEN);
+							helper.setText(R.id.letter_item_phonic,letter.getPhonics());
+						}else{	
+							helper.setTextColor(R.id.letter_item_name,Color.RED);
+							helper.setTextColor(R.id.letter_item_phonic,Color.RED);
+							helper.setText(R.id.letter_item_phonic,letter.getPhonics());
+						
+						}
+
+					}
+					
+				}
+				
+			};
+			
+			adapter.addAll(itemList);
+			
+			
+			this.mGridView.setAdapter(adapter);
+			
+			//this.mGridView.setAdapter(new QuizLetterAdapter(this, itemList));
 
 		} catch (Exception ex) {
 
@@ -172,13 +222,13 @@ public class QuizActivity extends BaseActivity {
 
 	private AlertDialog getAlertDialog(String title, String message) {
 		// 產生一個Builder物件
-		Builder builder = new AlertDialog.Builder(this);
+		Builder builder = new AlertDialog.Builder(this)
 		// 設定Dialog的標題
-		builder.setTitle(title);
+		.setTitle(title)
 		// 設定Dialog的內容
-		builder.setMessage(message);
+		.setMessage(message)
 		// 設定Positive按鈕資料
-		builder.setPositiveButton(getString(R.string.ok),
+		.setPositiveButton(getString(R.string.ok),
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -186,7 +236,7 @@ public class QuizActivity extends BaseActivity {
 
 					}
 				});
-
+		
 		// 利用Builder物件建立AlertDialog
 		return builder.create();
 	}
@@ -241,6 +291,8 @@ public class QuizActivity extends BaseActivity {
 
 	}
 
+	
+	/*
 	// 設定GridView 重繪
 	private Runnable redrawGridViewRedraw = new Runnable() {
 		public void run() {
@@ -252,9 +304,9 @@ public class QuizActivity extends BaseActivity {
 		}
 	};
 
+	*/
 	
-	
-	private void checkLatter(){
+	private void checkLetter(){
 		
 		// 設定Item
 		Letter l = (Letter) mGridView.getItemAtPosition(mPosition);
@@ -297,7 +349,7 @@ public class QuizActivity extends BaseActivity {
 			}
 			// mGridView.invalidateViews();
 		}
-		
+		this.mGridView.invalidateViews();
 		mEt.setText("");
 		
 	}
@@ -317,7 +369,7 @@ public class QuizActivity extends BaseActivity {
 
 				Log.d(LOGTAG, "Enter key Position=" + mPosition);
 
-				checkLatter();
+				checkLetter();
 				return true;
 			}
 			

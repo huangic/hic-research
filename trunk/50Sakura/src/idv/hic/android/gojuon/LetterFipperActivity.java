@@ -1,14 +1,16 @@
 package idv.hic.android.gojuon;
 
-import idv.hic.android.gojuon.adapter.LetterAdapter;
 import idv.hic.android.gojuon.service.QuizService;
 
 import java.util.List;
 
+import com.joanzapata.android.BaseAdapterHelper;
+import com.joanzapata.android.QuickAdapter;
+
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.widget.GridView;
 
 public class LetterFipperActivity extends Activity {
@@ -74,7 +76,48 @@ public class LetterFipperActivity extends Activity {
 
 			List<Letter> itemList = quizService.getExpLetter(vocal_cat, mType);
 
-			this.mGridView.setAdapter(new LetterAdapter(this, itemList));
+			
+			QuickAdapter<Letter> adapter = new QuickAdapter<Letter>(this,
+					R.layout.letter_item) {
+
+				@Override
+				protected void convert(BaseAdapterHelper helper, Letter l) {
+					// TODO Auto-generated method stub
+
+					if (!l.getName().equals("")) {
+						helper.setText(R.id.letter_item_name, l.getName());
+						helper.setText(R.id.letter_item_phonic, l.getPhonics());
+						helper.setText(R.id.letter_item_rate, l.getCorrectNum()
+								+ "/" + l.getTotalNum());
+					} else {
+						helper.setText(R.id.letter_item_name, "");
+						helper.setText(R.id.letter_item_rate, "");
+						helper.setText(R.id.letter_item_phonic, "");
+
+					}
+					if (l.getTotalNum() != l.getCorrectNum()) {
+						Log.d(TAG, "Total != Current");
+						helper.setTextColor(R.id.letter_item_name, Color.RED);
+						helper.setTextColor(R.id.letter_item_rate, Color.RED);
+						helper.setTextColor(R.id.letter_item_phonic, Color.RED);
+					} 
+
+						helper.setBackgroundColor(R.id.letter_item, Color.GRAY);
+					
+
+				}
+			};
+
+			adapter.addAll(itemList);
+			
+			
+			
+			mGridView.setAdapter(adapter);
+			
+			
+			
+			
+			//this.mGridView.setAdapter(new LetterAdapter(this, itemList));
 
 		} catch (Exception ex) {
 
